@@ -1,0 +1,333 @@
+*{
+    margin: 0px;
+    padding: 0px;    
+}
+@font-face{font-family:'dillen';
+    src:url('font/p.otf') format('truetype'),
+}
+body{
+    font-family: dillen;
+    background-color: #f8f5f5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;    
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+.front-top{
+    background-color: #8D7A71;
+    box-shadow: #00000035 0px 3px 6px;
+    width: auto;
+    border-radius: 0px 0px 25px 25px;
+    padding-bottom: 20px;
+}
+.in-front-top{
+    background-color: #f8f5f5;
+    box-shadow: #00000015 0px 3px 6px;
+    width: auto;
+    border-radius: 0px 0px 25px 25px;
+    padding-bottom: 25px;
+}
+.cover-box{
+    width: 90%;
+    max-width: 500px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 25px;
+    filter: drop-shadow(#00000035 0px 3px 6px);
+    margin-left: auto;
+    margin-right: auto;
+}
+.cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.kala-img-box{
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: auto;
+}
+.kala-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.front-ti-txt{
+    color: #635650;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 25px;
+}
+.line-small{
+    background-color: #ffffff;
+    border-radius: 100px;
+    width: 10%;
+    height: 2px;
+    opacity: 20%;
+    margin-top: 12px;
+}
+.next-title p{
+    font-size: 20px;
+    line-height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+}
+.next-title{
+    width: 80%;
+    margin-top: 15px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.line{
+    background-color: #00000020;
+    width: 70%;
+    height: 2px;
+    border-radius: 100px;
+    margin-top: 12px;
+}
+.next-part{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.next-part p{
+    line-height: 20px;
+    font-size: 20px;
+    color: #202020;
+    margin-left: auto;
+}
+.all-kala{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+.buy-kala{
+    display: flex;
+    font-size: 20px;
+    line-height: 20px;
+    width: 35%;
+}
+.toman{
+    margin-left: 5px;
+    text-align: right;
+    line-height: 10px;
+    font-size: 15px;
+    padding-right: 5px;
+    color: #000000;
+}
+.kala{
+    display: flex;
+    margin-top: 15px;
+    background-color: #f7f7f7;
+    width: auto;
+    height: 60px;
+    border-radius: 5px;
+    filter: drop-shadow(#00000035 0px 2px 3px);
+    padding: 5px;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-bottom: 5px;
+}
+.title-kala{
+    text-align: right;
+    font-size: 20px;
+    line-height: 20px;
+    padding-right: 15px;
+    padding-top: 0px;
+}
+.line-r{
+    background-color: #00000020;
+    width: 2px;
+    height: 60%;
+    border-radius: 100px;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.line-r p{
+    font-size: 0px;
+    line-height: 0px;
+}
+.rail-select-tab{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.tab{
+    background-color: #fffdfc;
+    filter: drop-shadow(#00000035 0px 2px 3px);
+    width: 120px;
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+.tab p{
+    color: #000000;
+    font-size: 15px;
+    line-height: 15px;
+    width: 100%;
+    text-align: center;
+}
+.icon-tab{
+    background-color: #8D7A71;
+    width: 40px;
+    height: 40px;
+    border-radius: 0px 5px 5px 0px;
+}
+.icon-tab img{
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}
+.line-b{
+    background-color: #00000020;
+    width: 2px;
+    height: 30px;
+    border-radius: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 15px;
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+.rail-fee{
+    display: flex;
+    margin-left: 5%;
+    width: 92%;
+}
+
+.gradient-left,
+.gradient-right {
+  position: sticky;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.gradient-left {
+  left: 0;
+  background: linear-gradient(to right, #f8f5f5, transparent);
+  height: 50px;
+
+}
+
+.gradient-right {
+  right: 0;
+  background: linear-gradient(to left, #f8f5f5, transparent);
+  height: 50px;
+  width: 2%;
+}
+.link-user-face{
+    background-color: #A4958D;
+    filter: drop-shadow(#00000035 0px 2px 3px);
+    border-radius: 100px;
+    width: 90%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+.link-user-face-all{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 0px;
+}
+.link-user-face a{
+    width: 40px;
+    height: 40px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+.icon-user-face img{
+    padding: 5px;
+    width: 10%;
+    filter: drop-shadow(#00000035 0px 2px 3px);
+}
+
+
+
+
+
+
+
+
+.kala:hover {
+    display: block;
+    margin-top: 15px;
+    background-color: #f7f7f7;
+    width: auto;
+    margin-left: auto;
+    height: 460px;
+    border-radius: 5px;
+    filter: drop-shadow(#00000035 0px 2px 3px);
+    padding: 5px;
+    align-items: center;
+    flex-direction: row-reverse;
+    transition: all 0.6s ease-in-out;
+}
+.kala:hover .kala-img-box{
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    border-radius: 5px;
+    margin-left: auto;
+    filter: drop-shadow(#3a332b35 0px 2px 2px);
+    margin-bottom: auto;
+    transition: transform 0.5s ease,
+    all 0.5s ease;
+    transition-delay: 0.2s;
+}
+.kala:hover .title-kala{
+    text-align: right;
+    font-size: 20px;
+    line-height: 20px;
+    padding-right: 5px;
+    padding-top: 15px;
+}
+.kala:hover .buy-kala{
+    transition: all 0.4s ease-in-out;
+}
+.kala:hover .line-r{
+    background-color: #00000013;
+    width: 100%;
+    height:30px;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.kala:hover .line-r p{
+    padding-right: 5px;
+    padding-top: 5px;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: right;
+}

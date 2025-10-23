@@ -141,7 +141,132 @@
             </div>
         </div>
 
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
+        <div class="kala">
+            <div class="kala-img-box">
+                <img class="kala-img" src="img/kala.jpg">
+            </div>
+            <p class="title-kala">قهوه تلخ</p>
+            <div class="line-r">
+                <p>بهترین کیفت ممکن برای کباب</p>
+            </div>
+            <div class="buy-kala">
+                <p class="toman">تو<br>مـــان</p>
+                <p>۲۰۰,۰۰۰</p>
+            </div>
+        </div>
+
+
     </div>
+
+    
 
 
 
@@ -183,6 +308,40 @@
         </div>
 
     </div>
+
+
+
+<script>
+  const kalas = document.querySelectorAll('.kala');
+
+  kalas.forEach(kala => {
+    kala.addEventListener('click', (e) => {
+      e.stopPropagation(); // جلوگیری از بسته شدن فوری
+
+      // بستن بقیه باکس‌ها
+      kalas.forEach(k => {
+        if (k !== kala) k.classList.remove('active');
+      });
+
+      // باز یا بسته کردن باکس کلیک‌شده
+      kala.classList.toggle('active');
+
+      // اگر باکس باز شد، اسکرول به اون
+      if (kala.classList.contains('active')) {
+        kala.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.scrollBy({ top: 200, behavior: 'smooth' }); // فاصله دلخواه از بالا (مثلاً 100px)
+      }
+    });
+  });
+
+  // بستن با کلیک بیرون
+  document.addEventListener('click', () => {
+    kalas.forEach(k => k.classList.remove('active'));
+  });
+</script>
+
+
+    
 
 </body>
 </html>

@@ -1,33 +1,57 @@
 *{
     margin: 0px;
-    padding: 0px;    
+    padding: 0px;
 }
 @font-face{font-family:'dillen';
     src:url('font/p.otf') format('truetype'),
 }
 body{
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;   
+    user-select: none;     
     font-family: dillen;
-    background-color: #f8f5f5;
+    background-color: #fefeff;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;    
+    min-height: 100vh;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 ::-webkit-scrollbar{
     width: 0px;
 }
 .front-top{
-    background-color: #8D7A71;
+    background-color: #1c39bb;
     box-shadow: #00000035 0px 3px 6px;
     width: auto;
     border-radius: 0px 0px 25px 25px;
     padding-bottom: 20px;
 }
+
+
+.in-front-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("img/T.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: in-front-top 0.5s ease-out forwards;
+}
+
+
 .in-front-top{
-    background-color: #f8f5f5;
+    background-color: #fefeff;
     box-shadow: #00000015 0px 3px 6px;
     width: auto;
     border-radius: 0px 0px 25px 25px;
     padding-bottom: 25px;
+    position: relative;
+    overflow: hidden;
 }
 .cover-box{
     width: 90%;
@@ -57,11 +81,15 @@ body{
     object-fit: cover;
 }
 .front-ti-txt{
-    color: #635650;
+    text-shadow: #080e2940 0px 2px 1px;
+    color: #1c39bb;
     font-size: 40px;
     line-height: 40px;
     text-align: center;
     padding: 25px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInText 0.5s ease-out forwards;
 }
 .line-small{
     background-color: #ffffff;
@@ -69,7 +97,8 @@ body{
     width: 10%;
     height: 2px;
     opacity: 20%;
-    margin-top: 12px;
+    margin-top: 2px;
+    animation: line-small 0.5s ease-out forwards;
 }
 .next-title p{
     font-size: 20px;
@@ -77,6 +106,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     color: #ffffff;
+    animation: all-kala-color 0.5s ease-out forwards;
 }
 .next-title{
     width: 80%;
@@ -84,13 +114,15 @@ body{
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    align-items: center;
 }
 .line{
     background-color: #00000020;
-    width: 70%;
+    width: 60%;
     height: 2px;
     border-radius: 100px;
     margin-top: 12px;
+    animation: line 0.5s ease-out forwards;
 }
 .next-part{
     display: flex;
@@ -103,18 +135,23 @@ body{
     font-size: 20px;
     color: #202020;
     margin-left: auto;
+    animation: all-kala-color 0.5s ease-out forwards;
 }
 .all-kala{
+    color: #000000;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
 }
 .buy-kala{
     display: flex;
     font-size: 20px;
     line-height: 20px;
     width: 35%;
+}
+.buy-kala p{
+    animation: all-kala-color 0.5s ease-out forwards;  
 }
 .toman{
     margin-left: 5px;
@@ -123,15 +160,16 @@ body{
     font-size: 15px;
     padding-right: 5px;
     color: #000000;
+    animation: all-kala-color 0.5s ease-out forwards;
 }
 .kala{
     display: flex;
     margin-top: 15px;
-    background-color: #f7f7f7;
-    width: auto;
+    background-color: #f8f9ff;
+    width: 100%;
     height: 60px;
     border-radius: 5px;
-    filter: drop-shadow(#00000035 0px 2px 3px);
+    filter: drop-shadow(#00000035 0px 2px 1px);
     padding: 5px;
     align-items: center;
     flex-direction: row-reverse;
@@ -143,6 +181,7 @@ body{
     line-height: 20px;
     padding-right: 15px;
     padding-top: 0px;
+    animation: all-kala-color 0.5s ease-out forwards;  
 }
 .line-r{
     background-color: #00000020;
@@ -170,25 +209,29 @@ body{
     scroll-behavior: smooth;
 }
 .tab{
-    background-color: #fffdfc;
-    filter: drop-shadow(#00000035 0px 2px 3px);
-    width: 120px;
+    background-color: #f8f9ff;
+    filter: drop-shadow(#00000035 0px 2px 1px);
+    width: 110px;
     height: 40px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     border-radius: 5px;
     flex-shrink: 0;
+    margin-left: 0px;
+    animation: help-scr 0.5s ease-out forwards;
+    transition: all 0.4s ease-in-out;
 }
 .tab p{
     color: #000000;
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 13px;
+    line-height: 13px;
     width: 100%;
     text-align: center;
+    animation: all-kala-color-b 0.5s ease-out forwards;
 }
 .icon-tab{
-    background-color: #8D7A71;
+    background-color: #3650c4;
     width: 40px;
     height: 40px;
     border-radius: 0px 5px 5px 0px;
@@ -197,6 +240,7 @@ body{
     padding: 5px;
     width: 30px;
     height: 30px;
+    animation: blur-img 0.5s ease-out forwards;
 }
 .line-b{
     background-color: #00000020;
@@ -228,19 +272,19 @@ body{
 
 .gradient-left {
   left: 0;
-  background: linear-gradient(to right, #f8f5f5, transparent);
+  background: linear-gradient(to right, #fefeff, transparent);
   height: 50px;
 
 }
 
 .gradient-right {
   right: 0;
-  background: linear-gradient(to left, #f8f5f5, transparent);
+  background: linear-gradient(to left, #fefeff, transparent);
   height: 50px;
   width: 2%;
 }
 .link-user-face{
-    background-color: #A4958D;
+    background-color: #3650c4;
     filter: drop-shadow(#00000035 0px 2px 3px);
     border-radius: 100px;
     width: 90%;
@@ -267,9 +311,61 @@ body{
 }
 .icon-user-face img{
     padding: 5px;
-    width: 10%;
+    width: 9%;
     filter: drop-shadow(#00000035 0px 2px 3px);
+    animation: blur-img 0.5s ease-out forwards;
 }
+.box-select{
+    margin-top: 15px;
+    background: linear-gradient(to right, #bbc2df, #d2daf1 40%);
+    filter: drop-shadow(#00000035 0px 2px 2px);
+    width: 80%;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+.box-select p{
+    font-size: 20px;
+    line-height: 20px;
+    padding: 20px 20px 20px 0px;
+    margin-left: auto;
+}.box-select svg{
+    padding-left: 20px;
+}
+.top-marg{
+    width: auto;
+    padding-top: 250px;
+}
+
+
+
+/*دکستاپ*/
+@media (min-width: 758px){
+
+    .tab{
+        width: 220px;
+        height: 40px;
+    }
+
+    .kala{
+        margin-top: 15px;
+        width: 47%;
+        height: 60px;
+        padding: 5px;
+        padding-bottom: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .all-kala{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+
 
 
 
@@ -281,12 +377,9 @@ body{
 .kala:hover {
     display: block;
     margin-top: 15px;
-    background-color: #f7f7f7;
-    width: auto;
     margin-left: auto;
     height: 460px;
     border-radius: 5px;
-    filter: drop-shadow(#00000035 0px 2px 3px);
     padding: 5px;
     align-items: center;
     flex-direction: row-reverse;
@@ -299,7 +392,6 @@ body{
     height: 350px;
     border-radius: 5px;
     margin-left: auto;
-    filter: drop-shadow(#3a332b35 0px 2px 2px);
     margin-bottom: auto;
     transition: transform 0.5s ease,
     all 0.5s ease;
@@ -330,4 +422,135 @@ body{
     font-size: 15px;
     line-height: 15px;
     text-align: right;
+}
+
+
+
+
+
+
+
+
+
+@keyframes line {
+  0% {
+    width: 10%;
+    background-color: #00000000;
+  }
+  50% {
+    background-color: #00000010;
+  }
+  100% {
+    width: 60%;
+    background-color: #00000020;
+  }
+}
+
+
+@keyframes help-scr {
+  0% {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  100% {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@keyframes all-kala-color {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes all-kala-color-b {
+  0% {
+    opacity: 0;
+    filter: blur(1px);
+  }
+  50% {
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+    font-size: 40px;
+    line-height: 0px;
+  }
+  100% {
+    font-size: 40px;
+    line-height: 40px;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes blur-img {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes blur-img-hide {
+  0% {
+    margin-top: 5%;
+    opacity: 0;
+    filter: blur(5px);
+  }
+  25% {
+    margin-top: 10%;
+    opacity: 1;
+    filter: blur(0);
+  }
+  75% {
+    margin-top: 10%;
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    margin-top: 30%;
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+
+@keyframes in-front-top {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 0.2;
+    filter: blur(0);
+  }
+}
+
+
+@keyframes line-small {
+  0% {
+    width: 15%;
+    height: 2px;
+  }
+  100% {
+    width: 10%;
+    height: 2px;
+  }
 }

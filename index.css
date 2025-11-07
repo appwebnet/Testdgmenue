@@ -96,7 +96,6 @@ body{
 }
 .top-one{
   text-align: right;
-  min-width: 400px;
   margin-left: auto;
 }
 .top-one p{
@@ -430,3 +429,4 @@ body{
     line-height: 0px;
   }
 }
+

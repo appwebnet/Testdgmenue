@@ -5,6 +5,9 @@
 @font-face{font-family:'dillen';
     src:url('font/p.otf') format('truetype'),
 }
+@font-face{font-family:'dillen-2';
+    src:url('font/PortadaARA-Regular.otf') format('truetype'),
+}
 body{
     -webkit-user-select: none;
     -moz-user-select: none; 
@@ -20,7 +23,7 @@ body{
     margin-left: auto;
     margin-right: auto;    
     background-color: #fefeff;
-    background: linear-gradient(-180deg, #ffffff 30%,#ffebfc);
+    background: linear-gradient(-180deg, #fdfdfd 30%,#ffebfc);
 
 }
 ::-webkit-scrollbar{
@@ -79,12 +82,12 @@ body{
 .kala-img-box{
     width: 60px;
     height: 60px;
+    flex-shrink: 0;
     overflow: hidden;
     border-radius: 15px;
     margin-bottom: auto;
     transition: transform 0.2s ease,
     all 0.2s ease;
-    animation: morph-2 6s ease-in-out infinite;
 }
 .kala-img{
     width: 100%;
@@ -92,7 +95,7 @@ body{
     object-fit: cover;
 }
 .front-ti-txt{
-    text-shadow: #ffffff50 0px 2px 0px;
+    text-shadow: #ffffff50 0px 2px 5px;
     color: #ff0037;
     font-size: 40px;
     line-height: 40px;
@@ -118,13 +121,14 @@ body{
 .line-small{
     background-color: #ffffff;
     border-radius: 100px;
-    width: 10%;
+    width: 5%;
     height: 2px;
     opacity: 20%;
     margin-top: 2px;
     animation: line-small 0.5s ease-out forwards;
 }
 .next-title p{
+    text-align: center;
     font-size: 20px;
     line-height: 20px;
     margin-left: auto;
@@ -133,7 +137,7 @@ body{
     animation: all-kala-color 0.5s ease-out forwards;
 }
 .next-title{
-    width: 80%;
+    width: 90%;
     margin-top: 15px;
     display: flex;
     margin-left: auto;
@@ -155,8 +159,8 @@ body{
     margin-right: auto;
 }
 .next-part p{
-    line-height: 20px;
-    font-size: 20px;
+    line-height: 18px;
+    font-size: 18px;
     color: #202020;
     margin-left: auto;
     width: auto;
@@ -173,12 +177,12 @@ body{
 }
 .buy-kala{
     display: flex;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 20px;
-    width: 35%;
     transition: transform 0.2s ease,
     all 0.2s ease;
     transition-delay: 0.2s;
+    align-items: center;
 }
 .buy-kala p{
     animation: all-kala-color 0.5s ease-out forwards;
@@ -187,10 +191,11 @@ body{
     transition-delay: 0.2s;
 }
 .toman{
+  padding-top: 3px;
     margin-left: 5px;
     text-align: right;
     line-height: 10px;
-    font-size: 15px;
+    font-size: 13px;
     padding-right: 5px;
     color: #000000;
     animation: all-kala-color 0.5s ease-out forwards;
@@ -206,26 +211,28 @@ body{
     width: 100%;
     height: auto;
     border-radius: 15px;
-    filter: drop-shadow(#00000015 0px 3px 0px);
+    filter: drop-shadow(#00000010 0px 2px 1px);
     padding: 5px;
     align-items: center;
     flex-direction: row-reverse;
-    transition: transform 0.2s cubic-bezier(10,0,50,10) forwards,
+    transition: transform 0.2s ease-in-out forwards,
     all 0.2s ease;
     transition-delay: 0.3s;
 }
 .title-kala{
     animation: all-kala-color 0.5s ease-out forwards;
     text-align: right;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 20px;
     padding-right: 15px;
-    padding-left: 15px;
     padding-top: 0px;
     white-space: nowrap;
     transition: transform 0.2s ease,
     all 0.2s ease;
     transition-delay: 0.2s;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 .line-r{
     background-color: #00000020;
@@ -234,6 +241,7 @@ body{
     border-radius: 100px;
     margin-right: auto;
     margin-left: auto;
+    flex-shrink: 0;
     transition: transform 0.2s ease,
     all 0.2s ease;
     transition-delay: 0.2s;
@@ -254,7 +262,7 @@ body{
     all: unset;
     background-color: #f8f9ff;    
     box-shadow: #ffffff 15px 15px 15px inset;
-    filter: drop-shadow(#00000015 0px 3px 0px);
+    filter: drop-shadow(#00000015 0px 2px 1px);
     width: 120px;
     height: 40px;
     display: flex;
@@ -390,8 +398,8 @@ body{
     padding-left: 20px;
 }
 .top-marg{
-    width: auto;
-    padding-top: 200px;
+  height: 25vh;
+  padding-top: 25vh;
 }
 .select-box{
   all: unset;
@@ -418,6 +426,7 @@ body{
 
     .all-kala{
         display: flex;
+        flex-direction: row-reverse;
         flex-wrap: wrap;
     }
 
@@ -436,14 +445,14 @@ body{
 
 .sir-2{
   margin-right: 0%;
-  animation: sir-2 1.2s ease-out forwards;
-  filter: drop-shadow(#00000035 0px 2px 1px);  
+  animation: sir-2 2.2s ease-out forwards;
+  filter: drop-shadow(#00000015 0px 2px 1px);
 }
 .sir-1{
   margin-left: 0%;
-  animation: sir-1 1.2s ease-out forwards;
+  animation: sir-1 2.2s ease-out forwards;
   transform: scalex(-1);
-  filter: drop-shadow(#00000035 0px 2px 1px);
+  filter: drop-shadow(#00000015 0px 2px 1px);
 }
 @keyframes sir-2 {
   0% {
@@ -451,7 +460,7 @@ body{
     margin-left: auto;
     opacity: 0;
   }
-  25% {
+  15% {
     margin-right: 20%;
     margin-left: auto;
   }
@@ -476,7 +485,7 @@ body{
     margin-right: auto;
     opacity: 0;
   }
-  25% {
+  15% {
     margin-left: 20%;
     margin-right: auto;
   }
@@ -504,8 +513,9 @@ body{
   line-height: 0px;
 }
 .kala.active .kala-info {
-  font-size: 20px;
-  line-height: 20px;
+  font-family: dillen-2;
+  font-size: 18px;
+  line-height: 22px;
   width: auto;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -522,12 +532,13 @@ body{
   margin-left: auto;
   overflow: hidden;
   width: 100%;
-  height: 350px;
+  height: 40vh;
   transition: transform 0.2s ease ease-in-out,
   all 0.2s ease;
   animation: morph-5 6s ease-in-out infinite;
 }
 .kala.active .title-kala {
+  color: #f8f9ff;
   width: 0px;
   height: 0px;
   line-height: 0px;
@@ -543,6 +554,7 @@ body{
 }
 
 .kala.active .buy-kala {
+  color: #f8f9ff;
   width: 0px;
   height: 0px;
   line-height: 0px;
@@ -551,6 +563,7 @@ body{
 }
 
 .kala.active .toman {
+  color: #f8f9ff;
   width: 0px;
   height: 0px;
   line-height: 0px;
@@ -558,11 +571,13 @@ body{
   transition-delay: 0.0s;
 }
 .kala.active .toman p{
+  color: #f8f9ff;
   transition-delay: 0.0s;
 }
 
 
 .kala.active .buy-kala p{
+  color: #f8f9ff;
   transition-delay: 0.0s;
 }
 
@@ -621,15 +636,15 @@ body{
   0% {
     opacity: 0;
     filter: blur(5px);
-    font-size: 40px;
+    font-size: 30px;
     line-height: 0px;
   }
   50% {
-    line-height: 40px;
+    line-height: 35px;
   }
   100% {
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 35px;
     opacity: 1;
     filter: blur(0);
   }
@@ -694,11 +709,11 @@ body{
 
 @keyframes line-small {
   0% {
-    width: 15%;
+    width: 1%;
     height: 2px;
   }
   100% {
-    width: 10%;
+    width: 5%;
     height: 2px;
   }
 }
@@ -780,13 +795,11 @@ body{
 @keyframes morph-5{
   0%{
     filter: contrast(1.2);
-    opacity: 100%;    
-    border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
+    opacity: 100%;
   }
   5%{
     filter: contrast(1.2) brightness(1.5);
-    opacity: 100%;    
-    border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
+    opacity: 100%;
   }
   20%{
     filter: contrast(1.2) brightness(1);
@@ -794,12 +807,10 @@ body{
   50%{
     filter: contrast(1);
     opacity: 90%;
-    border-radius: 70px 30px 40px 60px / 60px 30px 40px 70px;
   }
   100%{
     filter: contrast(1.2);
     opacity: 100%;
-    border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
   }
 }
 @keyframes g-2{

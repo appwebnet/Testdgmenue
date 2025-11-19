@@ -14,7 +14,7 @@
         <div class="in-front-top">
             <p class="front-ti-txt">رستوران اسماعیل آشپز</p>
             <div class="cover-box">
-                <img class="cover" src="img/cover-test.jpg">
+                <img class="cover" src="img/cover-test.webp">
             </div>
         </div>
             <div class="next-title">
@@ -114,7 +114,7 @@
 
         <div class="kala">
             <div class="kala-img-box">
-                <img class="kala-img" src="img/kala.jpg">
+                <img class="kala-img" src="img/222.webp">
             </div>
             <p class="title-kala">سینی کباب ۲نفره</p>
             <div class="line-r"></div>
@@ -127,7 +127,7 @@
 
         <div class="kala">
             <div class="kala-img-box">
-                <img class="kala-img" src="img/kala.jpg">
+                <img class="kala-img" src="img/333.webp">
             </div>
             <p class="title-kala">کباب شیشلیک ساندیز</p>
             <div class="line-r"></div>
@@ -322,10 +322,45 @@
   document.addEventListener('click', () => {
     kalas.forEach(k => k.classList.remove('active'));
   });
+
+
+
+const rail = document.querySelector('.rail-select-tab');
+
+let scrollSpeed = 1; 
+let direction = -1;  // از راست به چپ شروع می‌کنیم
+let autoScrolling = true; // کنترل فعال بودن اسکرول خودکار
+
+function autoScroll() {
+    if (!autoScrolling) return; // اگر کاربر دخالت کرد، توقف کن
+
+    rail.scrollLeft += scrollSpeed * direction;
+
+    // اگر رسید به ابتدای سمت چپ (بیشترین اسکرول)
+    if (rail.scrollLeft <= -(rail.scrollWidth - rail.clientWidth)) {
+        direction = 1; // برگرد به سمت راست
+    }
+
+    // اگر رسید به سمت راست کامل
+    if (rail.scrollLeft >= 0) {
+        direction = -1; // برگرد به سمت چپ
+    }
+
+    requestAnimationFrame(autoScroll);
+}
+
+window.onload = () => {
+    // شروع از سمت راست کامل
+    rail.scrollLeft = 0;
+    autoScroll();
+
+    // وقتی کاربر روی rail کلیک یا لمس کرد، اتو اسکرول متوقف می‌شود
+    rail.addEventListener('mousedown', () => autoScrolling = false);
+    rail.addEventListener('touchstart', () => autoScrolling = false);
+};
+  
 </script>
 
-
-    
 
 </body>
 </html>

@@ -26,9 +26,6 @@ body{
     background: linear-gradient(-180deg, #fdfdfd 30%,#ffebfc);
 
 }
-::-webkit-scrollbar{
-    width: 0px;
-}
 .front-top{
     background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
     background-size: 400% 400%;
@@ -38,8 +35,6 @@ body{
     border-radius: 0px 0px 25px 25px;
     padding-bottom: 20px;
 }
-
-
 .in-front-top::before {
   content: "";
   position: absolute;
@@ -271,10 +266,11 @@ body{
     border-radius: 10px;
     flex-shrink: 0;
     margin-left: 0px;
-    animation: help-scr 0.5s ease-out forwards;
     transition: all 0.4s ease-in-out;
 }
 .tab p{
+    padding-right: 5px;
+    margin-left: 5px;
     color: #000000;
     font-size: 13px;
     line-height: 13px;
@@ -430,6 +426,12 @@ body{
         flex-wrap: wrap;
     }
 
+}
+
+@media (max-width: 758px){
+  ::-webkit-scrollbar{
+    width: 0px;
+  }
 }
 
 
@@ -596,17 +598,6 @@ body{
   }
 }
 
-
-@keyframes help-scr {
-  0% {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  100% {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
 
 @keyframes all-kala-color {
   0% {

@@ -633,14 +633,12 @@ body{
 
 @keyframes fadeInText {
   0% {
-    opacity: 0;
     font-size: 30px;
     line-height: 35px;
   }
   100% {
     font-size: 30px;
     line-height: 35px;
-    opacity: 1;
   }
 }
 @keyframes fadeInText-2 {
@@ -654,85 +652,6 @@ body{
   }
 }
 
-@keyframes blur-img {
-  0% {
-    opacity: 0;
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@keyframes blur-img-hide {
-  0% {
-    margin-top: 5%;
-    opacity: 0;
-    filter: blur(5px);
-  }
-  25% {
-    margin-top: 10%;
-    opacity: 1;
-    filter: blur(0);
-  }
-  75% {
-    margin-top: 10%;
-    opacity: 1;
-    filter: blur(0);
-  }
-  100% {
-    margin-top: 30%;
-    opacity: 0;
-    filter: blur(5px);
-  }
-}
-
-
-@keyframes in-front-top {
-  0% {
-    opacity: 0;
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 0.2;
-    filter: blur(15px);
-  }
-}
-
-
-@keyframes line-small {
-  0% {
-    width: 1%;
-    height: 2px;
-  }
-  100% {
-    width: 5%;
-    height: 2px;
-  }
-}
-
-@keyframes tabp {
-  0% {
-    color: #f8f9ff00;
-    width: 100%;
-    text-align: center;
-  }
-  100% {
-    color: #000000;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@keyframes xx {
-  0% {
-    filter: blur(0px);
-  }
-  100% {
-    filter: blur(0px);
-  }
-}
 @keyframes g{
   0%{
     background-position: 0% 50%;
@@ -764,38 +683,6 @@ body{
   }
   100%{
     border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%;
-  }
-}
-@keyframes morph-3{
-  0%{
-    border-radius: 0px 0px 70px 30px / 30px 40px 60px 70px;
-  }
-  50%{
-    border-radius: 0px 0px 40px 60px / 60px 30px 40px 70px;
-  }
-  100%{
-    border-radius: 0px 0px 70px 30px / 30px 40px 60px 70px;
-  }
-}
-@keyframes morph-5{
-  0%{
-    filter: contrast(1.2);
-    opacity: 100%;
-  }
-  5%{
-    filter: contrast(1.2) brightness(1.5);
-    opacity: 100%;
-  }
-  20%{
-    filter: contrast(1.2) brightness(1);
-  }
-  50%{
-    filter: contrast(1);
-    opacity: 90%;
-  }
-  100%{
-    filter: contrast(1.2);
-    opacity: 100%;
   }
 }
 @keyframes g-2{

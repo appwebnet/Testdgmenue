@@ -186,7 +186,7 @@ body{
     transition-delay: 0.2s;
 }
 .toman{
-  padding-top: 3px;
+    padding-top: 3px;
     margin-left: 5px;
     text-align: right;
     line-height: 10px;
@@ -290,7 +290,6 @@ body{
     padding: 5px;
     width: 30px;
     height: 30px;
-    animation: blur-img 0.5s ease-out forwards;
 }
 .line-b{
     background-color: #00000020;
@@ -369,7 +368,6 @@ body{
     width: 9%;
     max-width: 40px;
     filter: drop-shadow(#00000035 0px 2px 3px);
-    animation: blur-img 0.5s ease-out forwards;
 }
 .box-select{
     margin-top: 15px;
@@ -537,7 +535,6 @@ body{
   height: 40vh;
   transition: transform 0.2s ease ease-in-out,
   all 0.2s ease;
-  animation: morph-5 6s ease-in-out infinite;
 }
 .kala.active .title-kala {
   color: #f8f9ff;
@@ -622,22 +619,28 @@ body{
   }
 }
 
+@keyframes opacity {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 @keyframes fadeInText {
   0% {
     opacity: 0;
-    filter: blur(5px);
     font-size: 30px;
-    line-height: 0px;
-  }
-  50% {
     line-height: 35px;
   }
   100% {
     font-size: 30px;
     line-height: 35px;
     opacity: 1;
-    filter: blur(0);
   }
 }
 @keyframes fadeInText-2 {
@@ -722,15 +725,6 @@ body{
   }
 }
 
-
-@keyframes xxx {
-  0% {
-    filter: blur(15px);
-  }
-  100% {
-    filter: blur(0px);
-  }
-}
 @keyframes xx {
   0% {
     filter: blur(0px);

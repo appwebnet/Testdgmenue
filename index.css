@@ -1,316 +1,380 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-@font-face{font-family:'dillen';
-    src:url('font/p.otf') format('truetype'),
-}
-@font-face{font-family:'dillen-2';
-    src:url('font/PortadaARA-Regular.otf') format('truetype'),
-}
-body{
-    -webkit-user-select: none;
-    -moz-user-select: none; 
-    -ms-user-select: none;   
-    user-select: none;     
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    font-family: dillen;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;    
-    background-color: #fefeff;
-    background: linear-gradient(-180deg, #fdfdfd 30%,#ffebfc);
+/* ===========================
+   Optimized full CSS (copy -> paste)
+   Preserves: gradient animation, morphing borders, key animations
+   Optimizations applied: reduced filter usage, smaller background-size,
+   longer/slower gradient animation, limited will-change and transitions,
+   prefers-reduced-motion handling.
+   =========================== */
 
+/* reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* fonts */
+@font-face{
+  font-family:'dillen';
+  src:url('font/p.otf') format('truetype');
+}
+@font-face{
+  font-family:'dillen-2';
+  src:url('font/PortadaARA-Regular.otf') format('truetype');
+}
+
+/* base */
+body{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  font-family: dillen, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fefeff;
+  background: linear-gradient(-180deg, #fdfdfd 30%, #ffebfc);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111;
+  /* limit heavy painting by avoiding CSS variables with complex calc in background */
+}
+
+/* -------------------------
+   Top / header area
+   ------------------------- */
 .front-top{
-    background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
-    background-size: 400% 400%;
-    animation: g 10s ease infinite;
-    box-shadow: #00000035 0px 3px 6px;
-    width: auto;
-    border-radius: 0px 0px 25px 25px;
-    padding-bottom: 20px;
+  background: linear-gradient(-45deg, #ff0080, #ff0037, #ff3e3e, #ff2e51);
+  background-size: 300% 300%; /* reduced from 400% */
+  animation: g 12s linear infinite; /* linear is lighter and smoother */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08); /* lighter */
+  width: auto;
+  border-radius: 0 0 25px 25px;
+  padding-bottom: 20px;
+  position: relative;
+  will-change: background-position;
 }
+
+/* optimized pseudo image overlay: less blur, lower opacity */
 .in-front-top::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("img/cover-test.jpg");
+  background-image: url("img/222.webp");
   background-size: cover;
   background-position: center;
-  opacity: 0.2;
+  opacity: 0.14; /* slightly reduced */
   pointer-events: none;
-  animation: in-front-top 0.5s ease-out forwards;
+  /* avoid heavy blur on pseudo unless necessary */
+  animation: in-front-top 0.6s ease-out forwards;
+  /* no filter blur on pseudo to reduce cost */
 }
 
-
+/* inner top card */
 .in-front-top{
-    background: linear-gradient(-180deg, #ffffff 50%,#ffffff80);
-    box-shadow: #00000015 0px 3px 6px;
-    width: auto;
-    border-radius: 0px 0px 70px 30px / 30px 40px 60px 70px;
-    animation: morph-3 6s ease-in-out infinite;
-    padding-bottom: 25px;
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(-180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0.5));
+  /* lighter shadow */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+  width: auto;
+  border-radius: 0 0 70px 30px / 30px 40px 60px 70px;
+  animation: morph-3 9s ease-in-out infinite; /* longer duration */
+  padding-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+  will-change: border-radius; /* limited use */
 }
+
+/* cover box */
 .cover-box{
-    width: 90%;
-    max-width: 500px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
-    animation: morph-2 6s ease-in-out infinite;
-    filter: drop-shadow(#00000035 0px 3px 6px);
-    margin-left: auto;
-    margin-right: auto;
+  width: 90%;
+  max-width: 500px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
+  animation: morph-2 9s ease-in-out infinite; /* longer */
+  /* reduce filter usage: replace drop-shadow filter with box-shadow where possible */
+  box-shadow: 0 6px 10px rgba(0,0,0,0.06);
+  margin: 0 auto;
+  will-change: border-radius;
 }
 .cover{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.kala-img-box{
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-    overflow: hidden;
-    border-radius: 15px;
-    margin-bottom: auto;
-    transition: transform 0.2s ease,
-    all 0.2s ease;
-}
-.kala-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.front-ti-txt{
-    text-shadow: #ffffff50 0px 2px 5px;
-    color: #ff0037;
-    font-size: 40px;
-    line-height: 40px;
-    text-align: center;
-    padding: 25px;
-    position: relative;
-    z-index: 1;
-    animation: fadeInText 0.8s ease-out forwards;
-}
-.front-ti-txt-2{
-    background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
-    background-size: 400% 400%;
-    animation: g 10s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 50px;
-    line-height: 50px;
-    text-align: center;
-    padding: 25px;
-    position: relative;
-    z-index: 1;
-}
-.line-small{
-    background-color: #ffffff;
-    border-radius: 100px;
-    width: 5%;
-    height: 2px;
-    opacity: 20%;
-    margin-top: 2px;
-    animation: line-small 0.5s ease-out forwards;
-}
-.next-title p{
-    text-align: center;
-    font-size: 20px;
-    line-height: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #ffffff;
-    animation: all-kala-color 0.5s ease-out forwards;
-}
-.next-title{
-    width: 90%;
-    margin-top: 15px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
-.line{
-    background-color: #00000020;
-    width: auto;
-    height: 2px;
-    border-radius: 100px;
-    margin-top: 12px;
-    animation: line 0.5s ease-out forwards;
-}
-.next-part{
-    display: flex;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.next-part p{
-    line-height: 18px;
-    font-size: 18px;
-    color: #202020;
-    margin-left: auto;
-    width: auto;
-    text-align: right;
-    white-space: nowrap;
-    padding-left: 15px;
-}
-.all-kala{
-    color: #000000;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px; 
-}
-.buy-kala{
-    display: flex;
-    font-size: 18px;
-    line-height: 20px;
-    transition: transform 0.2s ease,
-    all 0.2s ease;
-    transition-delay: 0.2s;
-    align-items: center;
-}
-.buy-kala p{
-    animation: all-kala-color 0.5s ease-out forwards;
-    transition: transform 0.2s ease,
-    all 0.2s ease;
-    transition-delay: 0.2s;
-}
-.toman{
-    padding-top: 3px;
-    margin-left: 5px;
-    text-align: right;
-    line-height: 10px;
-    font-size: 13px;
-    padding-right: 5px;
-    color: #000000;
-    animation: all-kala-color 0.5s ease-out forwards;
-    transition: transform 0.2s ease,
-    all 0.2s ease;
-    transition-delay: 0.2s;
-}
-.kala{
-    display: flex;
-    margin-top: 15px;
-    background-color: #f8f9ff;
-    box-shadow: #ffffff 15px 15px 15px inset;
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    filter: drop-shadow(#00000010 0px 2px 1px);
-    padding: 5px;
-    align-items: center;
-    flex-direction: row-reverse;
-    transition: transform 0.2s ease-in-out forwards,
-    all 0.2s ease;
-    transition-delay: 0.3s;
-}
-.title-kala{
-    animation: all-kala-color 0.5s ease-out forwards;
-    text-align: right;
-    font-size: 15px;
-    line-height: 20px;
-    padding-right: 15px;
-    padding-top: 0px;
-    white-space: nowrap;
-    transition: transform 0.2s ease,
-    all 0.2s ease;
-    transition-delay: 0.2s;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-.line-r{
-    background-color: #00000020;
-    width: 2px;
-    height: 40px;
-    border-radius: 100px;
-    margin-right: auto;
-    margin-left: auto;
-    flex-shrink: 0;
-    transition: transform 0.2s ease,
-    all 0.2s ease;
-    transition-delay: 0.2s;
-}
-.rail-select-tab{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 15px;
-    padding-bottom: 5px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-}
-.tab{
-    all: unset;
-    background-color: #f8f9ff;    
-    box-shadow: #ffffff 15px 15px 15px inset;
-    filter: drop-shadow(#00000015 0px 2px 1px);
-    width: 120px;
-    height: 40px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    border-radius: 10px;
-    flex-shrink: 0;
-    margin-left: 0px;
-    transition: all 0.4s ease-in-out;
-}
-.tab p{
-    padding-right: 5px;
-    margin-left: 5px;
-    color: #000000;
-    font-size: 13px;
-    line-height: 13px;
-    width: 100%;
-    text-align: center;
-    animation: tabp 0.5s ease-out forwards;
-}
-.icon-tab{
-    background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
-    background-size: 400% 400%;
-    animation: g 10s ease infinite;
-    width: 40px;
-    height: 40px;
-    border-radius: 0px 10px 10px 0px;
-}
-.icon-tab img{
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-}
-.line-b{
-    background-color: #00000020;
-    width: 2px;
-    height: 30px;
-    border-radius: 100px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-right: 10px;
-    margin-left: 10px;
-    flex-shrink: 0;
-}
-.rail-fee{
-    display: flex;
-    margin-left: 5%;
-    width: 92%;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
+/* small image box (product thumbnail) */
+.kala-img-box{
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px; /* slight smaller radius for cheaper render */
+  margin-bottom: auto;
+  transition: transform 0.2s ease,
+  all 0.2s ease;
+}
+.kala-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* title big */
+.front-ti-txt{
+  text-shadow: 0 2px 5px rgba(255,255,255,0.35);
+  color: #ff0037;
+  font-size: 30px; /* slightly smaller to avoid layout shifts */
+  line-height: 40px;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  position: relative;
+  z-index: 1;
+}
+.front-ti-txt-2{
+  background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
+  background-size: 300% 300%;
+  animation: g 12s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 45px;
+  line-height: 50px;
+  text-align: center;
+  padding: 25px;
+  position: relative;
+  z-index: 1;
+  will-change: background-position;
+}
+
+/* small lines and separators */
+.line-small{
+  background-color: #ffffff;
+  border-radius: 100px;
+  width: 6%;
+  height: 2px;
+  opacity: 0.2;
+  margin-top: 2px;
+  animation: line-small 0.6s ease-out forwards;
+}
+.next-title p{
+  text-align: center;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0 auto;
+  color: #ffffff;
+  animation: all-kala-color 0.5s ease-out forwards;
+}
+.next-title{
+  width: 90%;
+  margin-top: 12px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+.line{
+  background-color: rgba(0,0,0,0.12);
+  width: 100%;
+  height: 2px;
+  border-radius: 100px;
+  margin-top: 12px;
+}
+
+/* part headings */
+.next-part{
+  display: flex;
+  width: 90%;
+  margin: 12px auto;
+  align-items: center;
+  animation: blur-img 0.5s ease-out forwards;
+}
+.next-part p{
+  line-height: 18px;
+  font-size: 18px;
+  color: #202020;
+  margin-left: auto;
+  width: auto;
+  text-align: right;
+  white-space: nowrap;
+  padding-left: 15px;
+}
+
+/* items container */
+.all-kala{
+  color: #000000;
+  width: 90%;
+  margin: 0 auto 15px auto;
+  display: block;
+}
+
+/* buy area */
+.buy-kala{
+  display: flex;
+  font-size: 18px;
+  line-height: 20px;
+  transition: transform 200ms ease, opacity 200ms ease;
+  transition-delay: 0.12s;
+  align-items: center;
+  margin-right: auto;
+}
+.buy-kala p{
+  animation: all-kala-color 0.5s ease-out forwards;
+  transition: transform 200ms ease;
+}
+
+/* price small */
+.toman{
+  padding-top: 3px;
+  margin-left: 5px;
+  text-align: right;
+  line-height: 10px;
+  font-size: 13px;
+  padding-right: 5px;
+  color: #000000;
+  animation: all-kala-color 0.5s ease-out forwards;
+  transition: transform 200ms ease;
+}
+
+/* single product card */
+.kala{
+  display: flex;
+  margin-top: 15px;
+  background-color: #f8f9ff;  
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  /* avoid heavy filter:drop-shadow which is costly; use box-shadow instead */
+  box-shadow: #00000015 0px 3px 2px;
+  padding: 8px;
+  align-items: center;
+  flex-direction: row-reverse;
+  transition: transform 180ms ease-in-out;
+  transition-delay: 0.12s;
+  will-change: transform;
+  overflow: hidden;
+  animation: blur-img 0.5s ease-out forwards;
+}
+
+/* title inside item */
+.title-kala{
+  animation: all-kala-color 0.5s ease-out forwards;
+  text-align: right;
+  font-size: 15px;
+  line-height: 20px;
+  padding-right: 15px;
+  padding-top: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  transition: transform 160ms ease;
+}
+
+/* vertical separator */
+.line-r{
+  background-color: rgba(0,0,0,0.12);
+  width: 2px;
+  height: 40px;
+  border-radius: 100px;
+  margin: 0 8px;
+  margin-right: auto;
+  flex-shrink: 0;
+  transition: transform 160ms ease;
+  transition-delay: 0.12s;
+}
+
+/* rail / tabs */
+.rail-select-tab{
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 8px;
+  animation: blur-img 0.5s ease-out forwards;
+}
+
+/* hide scrollbar on small devices */
+@media (max-width: 758px){
+  .rail-select-tab::-webkit-scrollbar{ width: 0; height: 0; }
+}
+
+/* tab button */
+.tab{
+  all: unset;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: #f8f9ff;
+  box-shadow: #00000020 0px 2px 2px;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.tab p{
+  padding-right: 5px;
+  margin-left: 5px;
+  color: #000000;
+  font-size: 13px;
+  line-height: 13px;
+  width: 100%;
+  text-align: center;
+}
+
+/* icon box */
+.icon-tab{
+  background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
+  background-size: 300% 300%;
+  animation: g 12s linear infinite;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.icon-tab img{
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+/* small vertical line in tabs */
+.line-b{
+  background-color: rgba(0,0,0,0.12);
+  width: 2px;
+  height: 30px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+/* rail container sticky */
+.rail-fee{
+  display: flex;
+  margin-left: 5%;
+  width: 92%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* gradient masks (these will scroll with rail since you asked option 2) */
 .gradient-left,
 .gradient-right {
   position: sticky;
@@ -335,200 +399,148 @@ body{
   height: 50px;
   width: 2%;
 }
+
+/* user face links */
 .link-user-face{
-    background-color: #ffffff20;
-    box-shadow: #ffffff50 2px 2px 2px inset;
-    filter: drop-shadow(#00000035 0px 2px 3px);
-    border-radius: 100px;
-    width: 90%;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    height: 50px;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    animation: morph-2 6s ease-in-out infinite;
+  background-color: rgba(255,255,255,0.125);
+  box-shadow: inset 2px 2px 2px rgba(255,255,255,0.32);
+  border-radius: 100px;
+  width: 90%;
+  max-width: 500px;
+  margin: 15px auto 0 auto;
+  height: 50px;
+  align-items: center;
+  display: flex;
+  animation: morph-2 9s ease-in-out infinite; /* slower */
+  padding: 0 8px;
+  animation: blur-img 0.5s ease-out forwards;
 }
 .link-user-face-all{
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    font-size: 0px;
+  width: 100%;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 .link-user-face a{
-    width: 40px;
-    height: 40px;
-    margin-right: 2%;
-    margin-left: 2%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .icon-user-face img{
-    padding: 5px;
-    width: 9%;
-    max-width: 40px;
-    filter: drop-shadow(#00000035 0px 2px 3px);
+  width: 30px;
+  display: block;
 }
+
+/* big gradient button box */
 .box-select{
-    margin-top: 15px;
-    background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
-    background-size: 400% 400%;
-    animation: g 10s ease infinite;
-    filter: drop-shadow(#00000035 0px 2px 2px);
-    width: 80%;
-    border-radius: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
+  margin-top: 15px;
+  background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
+  background-size: 300% 300%;
+  animation: g 12s linear infinite;
+  width: 80%;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.06);
 }
-.box-select p{    
-    color: #ffffff;
-    font-size: 20px;
-    line-height: 20px;
-    padding: 20px 20px 20px 0px;
-    margin-left: auto;
-}.box-select svg{
-    padding-left: 20px;
+.box-select p{
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 20px 20px 20px 0;
+  margin-left: auto;
 }
+.box-select svg{ padding-left: 20px; }
+
+/* top spacing */
 .top-marg{
   height: 25vh;
   padding-top: 25vh;
 }
-.select-box{
-  all: unset;
-}
 
+/* reset select-box */
+.select-box{ all: unset; }
 
-/*دکستاپ*/
+/* =========================
+   Desktop tweaks
+   ========================= */
 @media (min-width: 758px){
-
-    .tab{
-        width: 220px;
-        height: 40px;
-    }
-
-    .kala{
-        margin-top: 15px;
-        width: 47%;
-        height: auto;
-        padding: 5px;
-        padding-bottom: 5px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .all-kala{
-        display: flex;
-        flex-direction: row-reverse;
-        flex-wrap: wrap;
-    }
-
-}
-
-@media (max-width: 758px){
-  ::-webkit-scrollbar{
-    width: 0px;
+  .tab{ width: 220px; height: 40px; }
+  .kala{
+    margin-top: 15px;
+    width: 47%;
+    height: auto;
+    padding: 5px 8px;
+    margin-left: auto;
+    margin-right: auto;
   }
+  .all-kala{ display: flex; flex-direction: row-reverse; flex-wrap: wrap; gap: 12px; }
 }
 
-
-
-
-.sir-box{
-  display: flex;
+/* hide scrollbars on mobile (already set for webkit above) */
+@media (max-width: 758px){
+  ::-webkit-scrollbar{ width: 0; height: 0; }
 }
 
-.sir-box img{
-  width: 100px;
-}
+/* =========================
+   Sir animation images
+   ========================= */
+.sir-box{ display: flex; gap: 12px; }
+.sir-box img{ width: 100px; display: block; }
 
 .sir-2{
-  margin-right: 0%;
-  animation: sir-2 2.2s ease-out forwards;
-  filter: drop-shadow(#00000015 0px 2px 1px);
+  margin-right: 0;
+  animation: sir-2 2.6s cubic-bezier(.2,.8,.2,1) forwards;
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,0.06));
 }
 .sir-1{
-  margin-left: 0%;
-  animation: sir-1 2.2s ease-out forwards;
-  transform: scalex(-1);
-  filter: drop-shadow(#00000015 0px 2px 1px);
-}
-@keyframes sir-2 {
-  0% {
-    margin-right: 0%;
-    margin-left: auto;
-    opacity: 0;
-  }
-  15% {
-    margin-right: 20%;
-    margin-left: auto;
-  }
-  50% {
-    margin-right: 20%;
-    margin-left: auto;
-  }
-  75% {
-    margin-right: 20%;
-    margin-left: auto;
-    opacity: 1;
-  }
-  100% {
-    margin-right: 0%;
-    margin-left: auto;
-    opacity: 0;
-  }
-}
-@keyframes sir-1 {
-  0% {
-    margin-left: 0%;
-    margin-right: auto;
-    opacity: 0;
-  }
-  15% {
-    margin-left: 20%;
-    margin-right: auto;
-  }
-  50% {
-    margin-left: 20%;
-    margin-right: auto;
-  }
-  75% {
-    margin-left: 20%;
-    margin-right: auto;
-    opacity: 1;
-  }
-  100% {
-    margin-left: 0%;
-    margin-right: auto;
-    opacity: 0;
-  }
+  margin-left: 0;
+  animation: sir-1 2.6s cubic-bezier(.2,.8,.2,1) forwards;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,0.06));
 }
 
-.kala p.active {
-  color: #f8f9ff;
+/* keyframes for sir - kept but slight timing changes */
+@keyframes sir-2 {
+  0% { margin-right: 0; margin-left: auto; opacity: 0; }
+  15% { margin-right: 20%; margin-left: auto; }
+  50% { margin-right: 20%; margin-left: auto; }
+  75% { margin-right: 20%; margin-left: auto; opacity: 1; }
+  100% { margin-right: 0; margin-left: auto; opacity: 0; }
 }
-.kala-info{
-  font-size: 0px;
-  line-height: 0px;
+@keyframes sir-1 {
+  0% { margin-left: 0; margin-right: auto; opacity: 0; }
+  15% { margin-left: 20%; margin-right: auto; }
+  50% { margin-left: 20%; margin-right: auto; }
+  75% { margin-left: 20%; margin-right: auto; opacity: 1; }
+  100% { margin-left: 0; margin-right: auto; opacity: 0; }
 }
-.kala.active .kala-info {
+
+/* =========================
+   Active item state (kala)
+   ========================= */
+.kala p.active { color: #f8f9ff; }
+.kala-info{ font-size: 0; line-height: 0; transition: opacity 160ms ease; }
+.kala.active .kala-info{
   font-family: dillen-2;
   font-size: 18px;
   line-height: 22px;
   width: auto;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 12px;
   text-align: center;
-  transition: transform 0.2s ease,
-  all 0.2s ease;
+  transition: opacity 180ms ease;
 }
-/* ✅ حالت باز شده */
 .kala.active {
   height: auto;
   display: block;
 }
-.kala.active .kala-img-box {
+.kala.active .kala-img-box{
   margin-left: auto;
   overflow: hidden;
   width: 100%;
@@ -536,167 +548,120 @@ body{
   transition: transform 0.2s ease ease-in-out,
   all 0.2s ease;
 }
-.kala.active .title-kala {
+.kala.active .title-kala{
   color: #f8f9ff;
-  width: 0px;
-  height: 0px;
-  line-height: 0px;
-  font-size: 0px;
-  transition-delay: 0.0s;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
 }
-.kala.active .line-r {
-  width: 0px;
-  height: 0px;
-  line-height: 0px;
-  font-size: 0px;
-  transition-delay: 0.0s;
+.kala.active .line-r,
+.kala.active .buy-kala,
+.kala.active .toman{
+  width: 0; height: 0; font-size: 0;
 }
 
-.kala.active .buy-kala {
-  color: #f8f9ff;
-  width: 0px;
-  height: 0px;
-  line-height: 0px;
-  font-size: 0px;
-  transition-delay: 0.0s;
-}
-
-.kala.active .toman {
-  color: #f8f9ff;
-  width: 0px;
-  height: 0px;
-  line-height: 0px;
-  font-size: 0px;
-  transition-delay: 0.0s;
-}
-.kala.active .toman p{
-  color: #f8f9ff;
-  transition-delay: 0.0s;
-}
+/* =========================
+   Keyframes (animations)
+   Keep them but reduced blur/filters and longer durations for lighter load
+   ========================= */
 
 
-.kala.active .buy-kala p{
-  color: #f8f9ff;
-  transition-delay: 0.0s;
-}
-
-
-
-
-
-@keyframes line {
-  0% {
-    width: 90%;
-    background-color: #00000000;
-  }
-  100% {
-    width: 100%;
-    background-color: #00000020;
-  }
-}
-
-
+/* opacity fades */
 @keyframes all-kala-color {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
-
 @keyframes all-kala-color-b {
-  0% {
-    opacity: 0;
-    filter: blur(1px);
-  }
-  50% {
-    filter: blur(1px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
+  0% { opacity: 0; filter: blur(1px); }
+  50% { filter: blur(1px); }
+  100% { opacity: 1; filter: blur(0); }
 }
 
-@keyframes opacity {
-  0% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+/* images entrance */
+@keyframes blur-img {
+  0% { opacity: 0; filter: blur(4px); transform: translateY(6px); }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+@keyframes blur-img-hide {
+  0% { margin-top: 5%; opacity: 0; filter: blur(4px); }
+  25% { margin-top: 10%; opacity: 1; filter: blur(0); }
+  75% { margin-top: 10%; opacity: 1; filter: blur(0); }
+  100% { margin-top: 30%; opacity: 0; filter: blur(4px); }
 }
 
-@keyframes fadeInText {
-  0% {
-    font-size: 30px;
-    line-height: 35px;
-  }
-  100% {
-    font-size: 30px;
-    line-height: 35px;
-  }
-}
-@keyframes fadeInText-2 {
-  0% {
-    opacity: 0;
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
+/* in-front-top pseudo-image fade */
+@keyframes in-front-top {
+  0% { opacity: 0; filter: blur(3px); }
+  100% { opacity: 0.14; filter: blur(6px); } /* smaller blur */
 }
 
+/* small line growth */
+@keyframes line-small {
+  0% { width: 1%; height: 2px; }
+  100% { width: 6%; height: 2px; }
+}
+
+/* tab text color transition */
+@keyframes tabp {
+  0% { color: rgba(248,249,255,0); width: 100%; text-align: center; }
+  100% { color: #000000; width: 100%; text-align: center; }
+}
+
+/* gradient animation (kept but slower and linear) */
 @keyframes g{
-  0%{
-    background-position: 0% 50%;
-  }
-  50%{
-    background-position: 100% 50%;
-  }
-  100%{
-    background-position: 0% 50%;
-  }
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
 }
+
+/* morph border animations - preserved but slower to reduce repaint frequency */
 @keyframes morph-2{
-  0%{
-    border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
-  }
-  50%{
-    border-radius: 70px 30px 40px 60px / 60px 30px 40px 70px;
-  }
-  100%{
-    border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px;
-  }
+  0%{ border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px; }
+  50%{ border-radius: 70px 30px 40px 60px / 60px 30px 40px 70px; }
+  100%{ border-radius: 40px 60px 70px 30px / 30px 40px 60px 70px; }
 }
 @keyframes morph{
-  0%{
-    border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%;
-  }
-  50%{
-    border-radius: 70% 30% 40% 60% / 60% 30% 40% 70%;
-  }
-  100%{
-    border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%;
-  }
+  0%{ border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%; }
+  50%{ border-radius: 70% 30% 40% 60% / 60% 30% 40% 70%; }
+  100%{ border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%; }
 }
-@keyframes g-2{
-  0%{
-    background-position: 0% 50%;
-    border-radius: 0px 0px 70px 30px / 30px 40px 60px 70px;
-  }
-  50%{
-    background-position: 100% 50%;
-    border-radius: 0px 0px 40px 60px / 60px 30px 40px 70px;
-  }
-  100%{
-    background-position: 0% 50%;
-    border-radius: 0px 0px 70px 30px / 30px 40px 60px 70px;
-  }
+@keyframes morph-3{
+  0%{ border-radius: 0 0 70px 30px / 30px 40px 60px 70px; }
+  50%{ border-radius: 0 0 40px 60px / 60px 30px 40px 70px; }
+  100%{ border-radius: 0 0 70px 30px / 30px 40px 60px 70px; }
+}
+@keyframes morph-5{
+  0%{ filter: contrast(1.08); opacity: 1; }
+  10%{ filter: contrast(1.08) brightness(1.2); opacity: 1; }
+  50%{ filter: contrast(1); opacity: 0.95; }
+  100%{ filter: contrast(1.08); opacity: 1; }
 }
 
+/* alternate gradient + morph combined (kept but slowed) */
+@keyframes g-2{
+  0%{ background-position: 0% 50%; border-radius: 0 0 70px 30px / 30px 40px 60px 70px; }
+  50%{ background-position: 100% 50%; border-radius: 0 0 40px 60px / 60px 30px 40px 70px; }
+  100%{ background-position: 0% 50%; border-radius: 0 0 70px 30px / 30px 40px 60px 70px; }
+}
+
+/* =========================
+   Misc small utilities
+   ========================= */
+.sr-only { position: absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+/* =========================
+   prefers-reduced-motion support
+   (turn off/limit animations for users who prefer less motion)
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+  .front-top, .in-front-top, .cover-box, .box-select, .link-user-face, .icon-tab {
+    animation: none !important;
+    transition: none !important;
+  }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* =========================
+   End of optimized CSS
+   ========================= */

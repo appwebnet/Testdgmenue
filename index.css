@@ -19,6 +19,10 @@
   src:url('font/p.otf') format('truetype');
 }
 @font-face{
+  font-family:'dillen-3';
+  src:url('font/pp.otf') format('truetype');
+}
+@font-face{
   font-family:'dillen-2';
   src:url('font/PortadaARA-Regular.otf') format('truetype');
 }
@@ -38,19 +42,17 @@ body{
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fefeff;
-  background: linear-gradient(-180deg, #fdfdfd 30%, #ffebfc);
+  background: linear-gradient(-180deg, #ffffff 50%, #0059ff10);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #111;
   /* limit heavy painting by avoiding CSS variables with complex calc in background */
 }
-
 /* -------------------------
    Top / header area
    ------------------------- */
 .front-top{
-  background: linear-gradient(-45deg, #ff0080, #ff0037, #ff3e3e, #ff2e51);
+  background: linear-gradient(-45deg, #0099ff,#0059ff,#783eff,#2e3cff);
   background-size: 300% 300%; /* reduced from 400% */
   animation: g 12s linear infinite; /* linear is lighter and smoother */
   box-shadow: 0 3px 6px rgba(0,0,0,0.08); /* lighter */
@@ -66,8 +68,8 @@ body{
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("img/222.webp");
-  background-size: cover;
+  background-image: url("img/T.jpg");
+  background-size: 150px;
   background-position: center;
   opacity: 0.14; /* slightly reduced */
   pointer-events: none;
@@ -102,6 +104,7 @@ body{
   box-shadow: 0 6px 10px rgba(0,0,0,0.06);
   margin: 0 auto;
   will-change: border-radius;
+  animation: sc-start 0.8s ease-in-out forwards;
 }
 .cover{
   width: 100%;
@@ -131,16 +134,17 @@ body{
 /* title big */
 .front-ti-txt{
   text-shadow: 0 2px 5px rgba(255,255,255,0.35);
-  color: #ff0037;
+  color: #0059ff;
   font-size: 30px; /* slightly smaller to avoid layout shifts */
   line-height: 40px;
   text-align: center;
   padding: 20px 0px 20px 0px;
   position: relative;
   z-index: 1;
+  font-family: dillen-3;
 }
 .front-ti-txt-2{
-  background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
+  background: linear-gradient(-45deg, #0099ff,#0059ff,#783eff,#2e3cff);
   background-size: 300% 300%;
   animation: g 12s linear infinite;
   -webkit-background-clip: text;
@@ -152,6 +156,7 @@ body{
   position: relative;
   z-index: 1;
   will-change: background-position;
+  font-family: dillen-3;
 }
 
 /* small lines and separators */
@@ -162,7 +167,6 @@ body{
   height: 2px;
   opacity: 0.2;
   margin-top: 2px;
-  animation: line-small 0.6s ease-out forwards;
 }
 .next-title p{
   text-align: center;
@@ -170,7 +174,6 @@ body{
   line-height: 20px;
   margin: 0 auto;
   color: #ffffff;
-  animation: all-kala-color 0.5s ease-out forwards;
 }
 .next-title{
   width: 90%;
@@ -194,7 +197,6 @@ body{
   width: 90%;
   margin: 12px auto;
   align-items: center;
-  animation: blur-img 0.5s ease-out forwards;
 }
 .next-part p{
   line-height: 18px;
@@ -226,7 +228,6 @@ body{
   margin-right: auto;
 }
 .buy-kala p{
-  animation: all-kala-color 0.5s ease-out forwards;
   transition: transform 200ms ease;
 }
 
@@ -239,7 +240,6 @@ body{
   font-size: 13px;
   padding-right: 5px;
   color: #000000;
-  animation: all-kala-color 0.5s ease-out forwards;
   transition: transform 200ms ease;
 }
 
@@ -253,19 +253,27 @@ body{
   border-radius: 14px;
   /* avoid heavy filter:drop-shadow which is costly; use box-shadow instead */
   box-shadow: #00000015 0px 3px 2px;
-  padding: 8px;
+  padding: 5px;
   align-items: center;
   flex-direction: row-reverse;
   transition: transform 180ms ease-in-out;
   transition-delay: 0.12s;
   will-change: transform;
   overflow: hidden;
-  animation: blur-img 0.5s ease-out forwards;
 }
-
+.kala::before {
+  content: "";
+  z-index: -3;
+  position: absolute;
+  inset: 0;
+  background-image: url("img/T.jpg");
+  background-size: contain;
+  background-position: center;
+  opacity: 0.03; /* slightly reduced */
+  pointer-events: none;
+}
 /* title inside item */
 .title-kala{
-  animation: all-kala-color 0.5s ease-out forwards;
   text-align: right;
   font-size: 15px;
   line-height: 20px;
@@ -302,8 +310,6 @@ body{
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  gap: 8px;
-  animation: blur-img 0.5s ease-out forwards;
 }
 
 /* hide scrollbar on small devices */
@@ -319,8 +325,8 @@ body{
   align-items: center;
   background-color: #f8f9ff;
   box-shadow: #00000020 0px 2px 2px;
-  width: 120px;
-  height: 40px;
+  width: 130px;
+  height: 45px;
   border-radius: 10px;
   flex-shrink: 0;
   cursor: pointer;
@@ -338,11 +344,11 @@ body{
 
 /* icon box */
 .icon-tab{
-  background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
+  background: linear-gradient(-45deg, #0099ff,#0059ff,#783eff,#2e3cff);
   background-size: 300% 300%;
   animation: g 12s linear infinite;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 0 10px 10px 0;
   display: flex;
   align-items: center;
@@ -350,9 +356,11 @@ body{
   flex-shrink: 0;
 }
 .icon-tab img{
-  width: 25px;
-  height: 25px;
+  width: 37.5px;
+  height: 37.5px;
+  padding: 5px;
   display: block;
+  filter: drop-shadow(#00000090 0px 3px 2px);
 }
 
 /* small vertical line in tabs */
@@ -362,6 +370,8 @@ body{
   height: 30px;
   border-radius: 100px;
   flex-shrink: 0;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* rail container sticky */
@@ -413,7 +423,6 @@ body{
   display: flex;
   animation: morph-2 9s ease-in-out infinite; /* slower */
   padding: 0 8px;
-  animation: blur-img 0.5s ease-out forwards;
 }
 .link-user-face-all{
   width: 100%;
@@ -429,6 +438,15 @@ body{
   align-items: center;
   justify-content: center;
 }
+.link-user-face button{
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0px;
+  background-color: #00000000;
+}
 .icon-user-face img{
   width: 30px;
   display: block;
@@ -437,7 +455,7 @@ body{
 /* big gradient button box */
 .box-select{
   margin-top: 15px;
-  background: linear-gradient(-45deg, #ff0080,#ff0037,#ff3e3e,#ff2e51);
+  background: linear-gradient(-45deg, #0099ff,#0059ff,#783eff,#2e3cff);
   background-size: 300% 300%;
   animation: g 12s linear infinite;
   width: 80%;
@@ -446,8 +464,13 @@ body{
   margin-right: auto;
   display: flex;
   align-items: center;
-  padding: 6px 12px;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.100);
+  font-family: dillen-3;
+  transition: transform 0.2s ease,
+  all 0.2s ease;
+}
+.box-select:hover{
+  transform: scale(0.95);
 }
 .box-select p{
   color: #ffffff;
@@ -471,28 +494,159 @@ body{
    Desktop tweaks
    ========================= */
 @media (min-width: 758px){
-  .tab{ width: 220px; height: 40px; }
+  *{
+    cursor: url('img/icons8-cursor-48.png'), auto;
+  }
+  .tab{ width: 220px; height: 40px; cursor: url('img/link.png'), auto;}
+  .tab p{
+    cursor: url('img/link.png'), auto;
+  }
   .kala{
     margin-top: 15px;
-    width: 47%;
+    width: 100%;
     height: auto;
     padding: 5px 8px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
+    cursor: url('img/link.png'), auto;
   }
-  .all-kala{ display: flex; flex-direction: row-reverse; flex-wrap: wrap; gap: 12px; }
+  .all-kala{gap: 12px; }
+
+  .kala.active .kala-img-box{
+    margin-left: auto;
+    overflow: hidden;
+    width: 50%;
+    height: 40vh;
+    transition: transform 0.2s ease ease-in-out,
+    all 0.2s ease;
+  }
+
+  .kala.active {
+    height: auto;
+    display: flex;
+  }
+
+  .kala.active .kala-info{
+    font-family: dillen-2;
+    font-size: 18px;
+    line-height: 22px;
+    width: 100%;
+    text-align: center;
+    transition: opacity 180ms ease;
+  }
+  .in-front-top{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
+  .front-ti-txt{    
+    padding: 20px;
+    font-size: 40px;
+    line-height: 50px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cover-box{
+    height: 300px;
+    width: 50%;
+  }
+  .link-user-face{
+    max-width: 90%;
+    height: 60px;
+  }
+  .icon-user-face p{
+    font-size: 15px;
+    line-height: 18px;
+    color: #ffffff;
+    padding-left: 2px;
+    cursor: url('img/link.png'), auto;
+  }
+  .link-user-face a{
+    background-color: rgba(255, 255, 255, 0.274);
+    box-shadow: inset 2px 2px 2px rgba(255,255,255,0.32);
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-decoration: none;
+    align-items: center;
+    cursor: url('img/link.png'), auto;
+    transition: all 0.2s ease-in-out;
+  }
+  .link-user-face button{
+    background-color: rgba(255, 255, 255, 0.274);
+    box-shadow: inset 2px 2px 2px rgba(255,255,255,0.32);
+    border: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    align-items: center;
+    cursor: url('img/link.png'), auto;
+    transition: all 0.2s ease-in-out;
+    font-size: 15px;
+    line-height: 18px;
+    color: #ffffff;
+    display: flex;
+    font-family: dillen;
+    text-align: center;
+  }
+  .icon-user-face img{
+    cursor: url('img/link.png'), auto;
+  }
+  .link-user-face a:hover{
+    transform: scale(0.95);
+  }
+  .tab:hover{
+    transform: scale(0.95);
+  }
 }
+
 
 /* hide scrollbars on mobile (already set for webkit above) */
 @media (max-width: 758px){
   ::-webkit-scrollbar{ width: 0; height: 0; }
+  
+  .icon-user-face p{
+  font-size: 0px;
+  line-height: 0px;
+}
+
+  .kala.active .kala-img-box{
+    margin-left: auto;
+    overflow: hidden;
+    width: 100%;
+    height: 40vh;
+    transition: transform 0.2s ease ease-in-out,
+    all 0.2s ease;
+  }
+
+  .kala.active {
+    height: auto;
+    display: block;
+  }
+  .kala.active .kala-info{
+    font-family: dillen-2;
+    font-size: 18px;
+    line-height: 22px;
+    width: auto;
+    padding: 15px 12px;
+    text-align: center;
+    transition: opacity 180ms ease;
+  }
 }
 
 /* =========================
    Sir animation images
    ========================= */
-.sir-box{ display: flex; gap: 12px; }
-.sir-box img{ width: 100px; display: block; }
+.sir-box{ display: flex;}
+.sir-box img{ width: 90px; display: block; }
 
 .sir-2{
   margin-right: 0;
@@ -508,18 +662,18 @@ body{
 
 /* keyframes for sir - kept but slight timing changes */
 @keyframes sir-2 {
-  0% { margin-right: 0; margin-left: auto; opacity: 0; }
-  15% { margin-right: 20%; margin-left: auto; }
+  0% { margin-right: 0; margin-left: auto; opacity: 0; transform: scale(0.60)}
+  15% { margin-right: 20%; margin-left: auto; transform: scale(1.0)}
   50% { margin-right: 20%; margin-left: auto; }
-  75% { margin-right: 20%; margin-left: auto; opacity: 1; }
-  100% { margin-right: 0; margin-left: auto; opacity: 0; }
+  75% { margin-right: 20%; margin-left: auto; opacity: 1; transform: scale(1.0)}
+  100% { margin-right: 0; margin-left: auto; opacity: 0; transform: scale(0.60)}
 }
 @keyframes sir-1 {
-  0% { margin-left: 0; margin-right: auto; opacity: 0; }
-  15% { margin-left: 20%; margin-right: auto; }
+  0% { margin-left: 0; margin-right: auto; opacity: 0; transform: scaleX(-0.60) scaleY(0.60)}
+  15% { margin-left: 20%; margin-right: auto; transform: scaleX(-1.0) scaleY(1.0)}
   50% { margin-left: 20%; margin-right: auto; }
-  75% { margin-left: 20%; margin-right: auto; opacity: 1; }
-  100% { margin-left: 0; margin-right: auto; opacity: 0; }
+  75% { margin-left: 20%; margin-right: auto; opacity: 1; transform: scaleX(-1.0) scaleY(1.0)}
+  100% { margin-left: 0; margin-right: auto; opacity: 0; transform: scaleX(-0.60) scaleY(0.60)}
 }
 
 /* =========================
@@ -527,27 +681,6 @@ body{
    ========================= */
 .kala p.active { color: #f8f9ff; }
 .kala-info{ font-size: 0; line-height: 0; transition: opacity 160ms ease; }
-.kala.active .kala-info{
-  font-family: dillen-2;
-  font-size: 18px;
-  line-height: 22px;
-  width: auto;
-  padding: 15px 12px;
-  text-align: center;
-  transition: opacity 180ms ease;
-}
-.kala.active {
-  height: auto;
-  display: block;
-}
-.kala.active .kala-img-box{
-  margin-left: auto;
-  overflow: hidden;
-  width: 100%;
-  height: 40vh;
-  transition: transform 0.2s ease ease-in-out,
-  all 0.2s ease;
-}
 .kala.active .title-kala{
   color: #f8f9ff;
   width: 0;
@@ -588,12 +721,6 @@ body{
   25% { margin-top: 10%; opacity: 1; filter: blur(0); }
   75% { margin-top: 10%; opacity: 1; filter: blur(0); }
   100% { margin-top: 30%; opacity: 0; filter: blur(4px); }
-}
-
-/* in-front-top pseudo-image fade */
-@keyframes in-front-top {
-  0% { opacity: 0; filter: blur(3px); }
-  100% { opacity: 0.14; filter: blur(6px); } /* smaller blur */
 }
 
 /* small line growth */
@@ -637,7 +764,16 @@ body{
   50%{ filter: contrast(1); opacity: 0.95; }
   100%{ filter: contrast(1.08); opacity: 1; }
 }
-
+@keyframes sc-start{
+  0%{
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  100%{
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
 /* alternate gradient + morph combined (kept but slowed) */
 @keyframes g-2{
   0%{ background-position: 0% 50%; border-radius: 0 0 70px 30px / 30px 40px 60px 70px; }
@@ -661,7 +797,10 @@ body{
   }
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }
-
+    #google_translate_element {
+      margin-top: 10px;
+      display: none;
+    }
 /* =========================
    End of optimized CSS
    ========================= */

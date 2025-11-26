@@ -451,6 +451,12 @@ body{
   width: 30px;
   display: block;
 }
+.gte{
+  border: 0px;
+  border-radius: 100px;
+  text-align: center;
+  border: 0px;
+}
 
 /* big gradient button box */
 .box-select{

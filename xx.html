@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" oncontextmenu="return false;">
+<html lang="en" oncontextmenu="return false;" draggable="false" ondragstart="return false">
 <head>
     <meta charset="UTF-8">
     <meta name="thme-color" content="#f8f5f5">
@@ -14,7 +14,7 @@
         <div class="in-front-top">
             <p class="front-ti-txt">رستوران اسماعیل آشپز</p>
             <div class="cover-box">
-                <img class="cover" src="img/kala.jpg">
+                <img class="cover" src="img/cover-test.webp">
             </div>
         </div>
             <div class="next-title">
@@ -28,30 +28,38 @@
 
                 <a class="icon-user-face" href="">
                     <img src="img/icons8-telegram-app-100.png">
-                </a>
-
-                <a class="icon-user-face" href="">
-                    <img src="img/icons8-whatsapp-100.png">
+                    <p>تلگرام</p>
                 </a>
 
                 <a class="icon-user-face" href="">
                     <img src="img/icons8-asia-100.png">
+                    <p>وب سایت</p>
                 </a>
 
                 <a class="icon-user-face" href="">
                     <img src="img/icons8-instagram-100.png">
+                    <p>اینستاگرام</p>
                 </a>
 
                 <a class="icon-user-face" href="">
                     <img src="img/icons8-office-phone-100.png">
+                    <p>تماس</p>
                 </a>
 
                 <a class="icon-user-face" href="">
                     <img src="img/icons8-location-100.png">
+                    <p>لوکیشن</p>
                 </a>
+
+                <button id="translate-btn" class="icon-user-face" href="">
+                    <img src="img/icons8-language-100 (1).png">
+                </button>
+
                 </div>
             </div>
     </div>
+
+    <div id="google_translate_element"></div>
 
     <div class="rail-fee">
 
@@ -61,7 +69,7 @@
         
         <a href="" class="tab">
             <div class="icon-tab">
-                <img src="img/icons8-kawaii-coffee-100.png">
+                <img src="img/xx/1.png">
             </div>
             <p>غذا های اصلی</p>
         </a>
@@ -71,7 +79,7 @@
 
         <a href="" class="tab">
             <div class="icon-tab">
-                <img src="img/icons8-croissant-100.png">
+                <img src="img/xx/2.png">
             </div>
             <p>کبابی ها</p>
         </a>
@@ -80,7 +88,7 @@
 
         <a href="" class="tab">
             <div class="icon-tab">
-                <img src="img/icons8-kawaii-bread-100.png">
+                <img src="img/xx/3.png">
             </div>
             <p>نان ها</p>
         </a>
@@ -89,7 +97,7 @@
 
         <a href="" class="tab">
             <div class="icon-tab">
-                <img src="img/icons8-citrus-100.png">
+                <img src="img/xx/4.png">
             </div>
             <p>مخلفات</p>
         </a>
@@ -114,7 +122,7 @@
 
         <div class="kala">
             <div class="kala-img-box">
-                <img class="kala-img" src="img/kala.jpg">
+                <img class="kala-img" src="img/222.webp">
             </div>
             <p class="title-kala">سینی کباب ۲نفره</p>
             <div class="line-r"></div>
@@ -127,7 +135,7 @@
 
         <div class="kala">
             <div class="kala-img-box">
-                <img class="kala-img" src="img/kala.jpg">
+                <img class="kala-img" src="img/333.webp">
             </div>
             <p class="title-kala">کباب شیشلیک ساندیز</p>
             <div class="line-r"></div>
@@ -325,8 +333,41 @@
 
 
   
+
+
+  
 </script>
 
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // کلیک روی دکمه → نمایش باکس ترجمه
+    document.getElementById("translate-btn").onclick = function () {
+      const box = document.getElementById("google_translate_element");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+    };
+
+    // تابع ویجت گوگل
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'fa',
+        includedLanguages: 'en,ar,fa,tr,fr,de,ru,es',
+        layout: google.translate.TranslateElement.InLINE_LAYOUT_VERTICAL
+      }, 'google_translate_element');
+    }
+  </script>
+
+  <!-- اسکریپت اصلی گوگل -->
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>

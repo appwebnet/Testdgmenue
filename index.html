@@ -174,19 +174,26 @@
     });
   }
 
-  function scrollNext() {
-    if (current < scenes.length - 1) {
-      current++;
-      updateScenes();
-    }
+function scrollNext() {
+  if (current < scenes.length - 1) {
+    current++;
+  } else {
+    // رسیدیم به آخر → برگردیم به اول
+    current = 0;
   }
+  updateScenes();
+}
 
-  function scrollPrev() {
-    if (current > 0) {
-      current--;
-      updateScenes();
-    }
+function scrollPrev() {
+  if (current > 0) {
+    current--;
+  } else {
+    // رسیدیم به اول → بریم آخر
+    current = scenes.length - 1;
   }
+  updateScenes();
+}
+
 
   function lockScroll() {
     isScrolling = true;

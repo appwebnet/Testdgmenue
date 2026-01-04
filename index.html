@@ -1,59 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl" oncontextmenu="return false;" draggable="false" ondragstart="return false">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="thme-color" content="#f8f5f5">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SELECT PART</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DG Menu</title>
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    
 
+  <div class="scroll-stage">
+    <div class="scroll-wrapper">
 
+      <section class="scene active">
+        <div class="page-box">
 
-    <div class="top-marg">
+          <!-- ابرها -->
+          <img src="img/3.png" class="cloud cloud-1">
+          <img src="img/2.png" class="cloud cloud-2">
+          <img src="img/3.png" class="cloud cloud-3">
 
+          <!-- اشکال -->
+          <img src="img/4.svg" class="triangle">
+          <img src="img/5.svg" class="circle">
 
+          <!-- متن چپ -->
+          <div class="text left">
+            <h1>بــهــــــتــریـن<br>منـو دیجیتال</h1>
+          </div>
 
-    <div class="sir-box">
-        <img class="sir-1" src="img/003.png">
-        <img class="sir-2" src="img/003.png">
-    </div>    
+          <!-- لوگو وسط -->
+          <div class="logo">
+            <img src="img/logo.png" alt="logo">
+          </div>
+          <a class="bu-start" href="">ورود به دیجی منو</a>
 
-    <p class="front-ti-txt-2">رستوران سنتی</p>
+          <!-- متن راست -->
+          <div class="text right">
+            <h1>دیــــجـــــــی<br>مـــــنـــــــــو</h1>
+          </div>
 
-
- 
-    
-
-
-    <a href="xx.html" class="select-box">
-        <div class="box-select">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                <path id="Polygon_4" data-name="Polygon 4" d="M8.586,1.414a2,2,0,0,1,2.828,0l7.172,7.172a2,2,0,0,1,0,2.828l-7.172,7.172a2,2,0,0,1-2.828,0L1.414,11.414a2,2,0,0,1,0-2.828Z" fill="rgba(0,0,0,0.5)"/>
-            </svg>
-            <p>کافــــــه</p>
         </div>
-    </a>
-    <a href="index2.html" class="select-box">
-        <div class="box-select">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                <path id="Polygon_4" data-name="Polygon 4" d="M8.586,1.414a2,2,0,0,1,2.828,0l7.172,7.172a2,2,0,0,1,0,2.828l-7.172,7.172a2,2,0,0,1-2.828,0L1.414,11.414a2,2,0,0,1,0-2.828Z" fill="rgba(0,0,0,0.5)"/>
-            </svg>
-            <p>کافــــــه</p>
-        </div>
-    </a>
-    
+      </section>
 
+      <section class="scene">
+        <section class="section-two">
+
+          <!-- ستاره‌ها -->
+          <img src="img/7.svg" class="star star-left">
+          <img src="img/7.svg" class="star star-right">
+
+          <!-- کارت‌ها -->
+          <div class="cards">
+
+            <img class="card" src="img/x.png">
+
+            <img class="card" src="img/xx.png">
+
+            <div class="cardmob">
+              <p>اولین، جذاب ترین و سریع تـریــن منوی دیـجیـتـال ایــرانــی</p>
+            </div>
+
+            <img class="card" src="img/xxx.png">
+
+          </div>
+
+          <!-- دایره پایین -->
+          <img src="img/6.svg" class="bottom-circle">
+          <img src="img/6.svg" class="bottom-circle-b">
+          <div class="ui-text-b">
+            <p>اولین، جذاب ترین و سریع ترین منوی دیجیتال ایرانی</p>
+          </div>
+
+        </section>
+      </section>
+
+      <section class="scene">
+        <section class="section-three">
+
+          <!-- ستاره‌ها -->
+          <img src="img/8.svg" class="star-blue star-tl">
+          <img src="img/8.svg" class="star-blue star-br">
+
+          <!-- متن -->
+          <div class="ui-text">
+            <p>رابــط کـاربـری سـاده و زیــبـا</p>
+          </div>
+
+
+          <!-- تصاویر UI -->
+          <div class="ui-mockup">
+            <img src="img/xxxx.png" class="ui back">
+            <img src="img/xxxxx.png" class="ui front">
+          </div>
+
+        </section>
+      </section>
+
+      <section class="scene">
+        <section class="section-two" style="background: radial-gradient(circle at top center,#FFFFFF 0%,#BFBFBF 70%);">
+          <img src="img/3.png" class="cloud cloud-1">
+          <img src="img/2.png" class="cloud cloud-2">
+          <img src="img/3.png" class="cloud cloud-3">
+
+          <!-- کارت‌ها -->
+          <div class="cards">
+
+            <img class="card" src="img/demox.jpg">
+
+            <img class="card" src="img/demoxx.jpg">
+
+            <img class="card" src="img/demoxxx.jpg">
+
+            <img class="card" src="img/demoxxxx.jpg">
+
+
+          </div>
+        </section>
+      </section>
 
     </div>
+  </div>
+  <script>
+    let current = 0;
+    const scenes = document.querySelectorAll('.scene');
+    let isScrolling = false;
 
+    function updateScenes() {
+      scenes.forEach((scene, i) => {
+        scene.classList.remove('active', 'behind');
 
+        if (i === current) {
+          scene.classList.add('active');
+        }
+        else if (i === current - 1) {
+          scene.classList.add('behind');
+        }
+      });
+    }
 
+    window.addEventListener('wheel', (e) => {
+      if (isScrolling) return;
+      isScrolling = true;
 
+      if (e.deltaY > 0 && current < scenes.length - 1) {
+        current++;
+      } else if (e.deltaY < 0 && current > 0) {
+        current--;
+      }
 
-    
-    
+      updateScenes();
+
+      setTimeout(() => {
+        isScrolling = false;
+      }, 1200);
+    });
+  </script>
+
 </body>
+
 </html>

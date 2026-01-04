@@ -3,9 +3,20 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DG Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="دیجی منو؛ بهترین، سریع‌ترین و جذاب‌ترین منوی دیجیتال ایرانی با رابط کاربری ساده و زیبا برای رستوران‌ها و کافه‌ها.">
+  <meta name="keywords" content="منو دیجیتال, دیجی منو, منو QR, منو کافه, رستوران هوشمند">
+  <meta name="author" content="DG Menu Team">
+  <meta name="theme-color" content="#FECC00">
   <link rel="stylesheet" href="index.css">
+  
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="دیجی منو | بهترین منوی دیجیتال">
+  <meta property="og:description" content="اولین و سریع‌ترین منوی دیجیتال ایرانی با رابط کاربری مدرن.">
+
+  <title>دیجی منو | بهترین منوی دیجیتال ایرانی</title>
 </head>
 
 <body>
@@ -13,137 +24,124 @@
   <div class="scroll-stage">
     <div class="scroll-wrapper">
 
+      <!-- SCENE 1: Home / Intro -->
       <section class="scene active">
         <div class="page-box">
-
-          <!-- ابرها -->
+          <!-- Clouds -->
           <img src="img/3.png" class="cloud cloud-1">
           <img src="img/2.png" class="cloud cloud-2">
           <img src="img/3.png" class="cloud cloud-3">
 
-          <!-- اشکال -->
+          <!-- Shapes -->
           <img src="img/4.svg" class="triangle">
           <img src="img/5.svg" class="circle">
 
-          <!-- متن چپ -->
+          <!-- Left Text -->
           <div class="text left">
             <h1>بــهــــــتــریـن<br>منـو دیجیتال</h1>
           </div>
 
-          <!-- لوگو وسط -->
+          <!-- Logo & Button -->
           <div class="logo">
             <img src="img/logo.png" alt="logo">
           </div>
           <a class="bu-start" href="">ورود به دیجی منو</a>
 
-          <!-- متن راست -->
+          <!-- Right Text -->
           <div class="text right">
             <h1>دیــــجـــــــی<br>مـــــنـــــــــو</h1>
           </div>
-
         </div>
       </section>
 
+      <!-- SCENE 2: About / Quote -->
       <section class="scene">
         <section class="section-two-b">
-
+          <!-- Background Elements -->
           <img src="img/4.svg" class="triangle">
           <img src="img/5.svg" class="circle">
-
           <img src="img/3.png" class="cloud cloud-1">
           <img src="img/2.png" class="cloud cloud-2">
           <img src="img/3.png" class="cloud cloud-3">
-          
-          <div class="ab">            
+
+          <!-- Content -->
+          <div class="ab">
             <div class="ab-box">
               <img class="sir-photo" src="img/sir.png">
               <div class="cv-text">
                 <p>دسـت در دسـت هـم دهـیـم به مهر، میـهن خویش را کنـیم آبـاد</p>
-              </div>              
+              </div>
             </div>
           </div>
-
         </section>
       </section>
 
+      <!-- SCENE 3: Features / Cards Dark -->
       <section class="scene">
         <section class="section-two">
-
-          <!-- ستاره‌ها -->
+          <!-- Stars -->
           <img src="img/7.svg" class="star star-left">
           <img src="img/7.svg" class="star star-right">
 
-          <!-- کارت‌ها -->
+          <!-- Cards -->
           <div class="cards">
-
             <img class="card" src="img/x.png">
-
             <img class="card" src="img/xx.png">
-
             <div class="cardmob">
               <p>اولین، جذاب ترین و سریع تـریــن منوی دیـجیـتـال ایــرانــی</p>
             </div>
-
             <img class="card" src="img/xxx.png">
-
           </div>
 
-          <!-- دایره پایین -->
+          <!-- Bottom Circles & Text -->
           <img src="img/6.svg" class="bottom-circle">
           <img src="img/6.svg" class="bottom-circle-b">
           <div class="ui-text-b">
             <p>اولین، جذاب ترین و سریع ترین منوی دیجیتال ایرانی</p>
           </div>
-
         </section>
       </section>
 
+      <!-- SCENE 4: UI / Mockup -->
       <section class="scene">
         <section class="section-three">
-
-          <!-- ستاره‌ها -->
+          <!-- Stars -->
           <img src="img/8.svg" class="star-blue star-tl">
           <img src="img/8.svg" class="star-blue star-br">
 
-          <!-- متن -->
+          <!-- Text -->
           <div class="ui-text">
             <p>رابــط کـاربـری سـاده و زیــبـا</p>
           </div>
 
-
-          <!-- تصاویر UI -->
+          <!-- UI Images -->
           <div class="ui-mockup">
             <img src="img/xxxx.png" class="ui back">
             <img src="img/xxxxx.png" class="ui front">
           </div>
-
         </section>
       </section>
 
+      <!-- SCENE 5: Demo Gallery -->
       <section class="scene">
         <section class="section-two-b">
           <img src="img/3.png" class="cloud cloud-1">
           <img src="img/2.png" class="cloud cloud-2">
           <img src="img/3.png" class="cloud cloud-3">
 
-          <!-- کارت‌ها -->
+          <!-- Cards List -->
           <div class="cards">
-
             <img class="card" src="img/demox.jpg">
-
             <img class="card" src="img/demoxx.jpg">
-
             <img class="card" src="img/demoxxx.jpg">
-
             <img class="card" src="img/demoxxxx.jpg">
-
-
           </div>
         </section>
       </section>
 
     </div>
   </div>
+
 <script>
   let current = 0;
   const scenes = document.querySelectorAll('.scene');
@@ -151,7 +149,16 @@
 
   let touchStartY = 0;
   let touchEndY = 0;
-  const swipeThreshold = 50; // حداقل مقدار سوایپ
+  const swipeThreshold = 50;
+
+  function restartAnimations(scene) {
+    const animatedEls = scene.querySelectorAll('*');
+    animatedEls.forEach(el => {
+      el.style.animation = 'none';
+      el.offsetHeight; // force reflow
+      el.style.animation = '';
+    });
+  }
 
   function updateScenes() {
     scenes.forEach((scene, i) => {
@@ -159,7 +166,9 @@
 
       if (i === current) {
         scene.classList.add('active');
-      } else if (i === current - 1) {
+        restartAnimations(scene); // 🔥 انیمیشن‌ها از نو
+      } 
+      else if (i === current - 1) {
         scene.classList.add('behind');
       }
     });
@@ -186,20 +195,17 @@
     }, 1200);
   }
 
-  /* ===== Mouse Wheel (Desktop) ===== */
+  /* Mouse Wheel */
   window.addEventListener('wheel', (e) => {
     if (isScrolling) return;
 
-    if (e.deltaY > 0) {
-      scrollNext();
-    } else if (e.deltaY < 0) {
-      scrollPrev();
-    }
+    if (e.deltaY > 0) scrollNext();
+    else scrollPrev();
 
     lockScroll();
   }, { passive: true });
 
-  /* ===== Touch (Mobile) ===== */
+  /* Touch */
   window.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
@@ -212,13 +218,8 @@
 
     if (Math.abs(deltaY) < swipeThreshold) return;
 
-    if (deltaY > 0) {
-      // swipe up
-      scrollNext();
-    } else {
-      // swipe down
-      scrollPrev();
-    }
+    if (deltaY > 0) scrollNext();
+    else scrollPrev();
 
     lockScroll();
   }, { passive: true });
@@ -228,5 +229,4 @@
 
 
 </body>
-
 </html>

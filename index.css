@@ -1,23 +1,29 @@
+/* ========================
+   1. FONTS
+   ======================== */
 @font-face {
   font-family: 'dillen';
-  src: url('font/p.otf') format('truetype'),
+  src: url('font/p.otf') format('truetype');
 }
 
 @font-face {
   font-family: 'dillen-l';
-  src: url('font/PortadaARA-Light.otf') format('truetype'),
+  src: url('font/PortadaARA-Light.otf') format('truetype');
 }
 
 @font-face {
   font-family: 'dillen-m';
-  src: url('font/PortadaARA-Regular.otf') format('truetype'),
+  src: url('font/PortadaARA-Regular.otf') format('truetype');
 }
 
 @font-face {
   font-family: 'dillen-b';
-  src: url('font/PortadaARA-Semibold.otf') format('truetype'),
+  src: url('font/PortadaARA-Semibold.otf') format('truetype');
 }
 
+/* ========================
+   2. RESET & GLOBAL
+   ======================== */
 * {
   margin: 0;
   padding: 0;
@@ -29,93 +35,90 @@
   width: 0px;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes mot {
-  0% {
-    margin-right: 0px;
-  }
-
-  50% {
-    margin-right: 100px;
-  }
-
-  100% {
-    margin-right: 0px;
-  }
-}
-
-@keyframes mott {
-  0% {
-    margin-left: 0px;
-  }
-
-  50% {
-    margin-left: 100px;
-  }
-
-  100% {
-    margin-left: 0px;
-  }
-}
-
-@keyframes txtline {
-  0% {
-    transform: scale(0.9);
-    opacity: 0%;
-  }
-
-  100% {
-    transform: scale(1.0);
-    opacity: 80%;
-  }
-}
-
-@keyframes bo {
-  0% {
-    bottom: -90%;
-  }
-
-  50% {
-    bottom: -70%;
-  }
-
-  100% {
-    bottom: -90%;
-  }
-}
-
-@keyframes bob {
-  0% {
-    top: 80%;
-  }
-
-  50% {
-    top: 70%;
-  }
-
-  100% {
-    top: 80%;
-  }
-}
-
 body {
   min-height: 100vh;
 }
 
-/* باکس اصلی = کل صفحه */
+/* ========================
+   3. ANIMATIONS
+   ======================== */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes mot {
+  0% { margin-right: 0px; }
+  50% { margin-right: 100px; }
+  100% { margin-right: 0px; }
+}
+
+@keyframes mott {
+  0% { margin-left: 0px; }
+  50% { margin-left: 100px; }
+  100% { margin-left: 0px; }
+}
+
+@keyframes txtline {
+  0% { transform: scale(0.9); opacity: 0%; }
+  100% { transform: scale(1.0); opacity: 80%; }
+}
+
+@keyframes bo {
+  0% { bottom: -90%; }
+  50% { bottom: -70%; }
+  100% { bottom: -90%; }
+}
+
+@keyframes bob {
+  0% { top: 80%; }
+  50% { top: 70%; }
+  100% { top: 80%; }
+}
+
+/* ========================
+   4. SCROLL LOGIC & STAGE
+   ======================== */
+.scroll-stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.scroll-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 400vh;
+}
+
+.scene {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: scaleX(1.1) scaleY(1.2);
+  transition: transform 1s cubic-bezier(.22, .61, .36, 1), opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.scene.active {
+  opacity: 1;
+  transform: scaleX(1);
+  pointer-events: auto;
+}
+
+.scene.behind {
+  transform: scaleX(1.1) scaleY(1.2);
+}
+
+/* ========================
+   5. PAGE BOX & BACKGROUNDS
+   ======================== */
 .page-box {
-  background: radial-gradient(circle at top center,
-      #FFFFFF 0%,
-      #BFBFBF 70%);
+  background: radial-gradient(circle at top center, #FFFFFF 0%, #BFBFBF 70%);
   position: relative;
   width: 100%;
   height: 100vh;
@@ -138,50 +141,10 @@ body {
   mix-blend-mode: screen;
 }
 
-.section-two::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("img/noiz-over.jpg");
-  opacity: 20%;
-  background-size: cover;
-  background-position: center;
-  z-index: 5;
-  mix-blend-mode: screen;
-}
-.section-two-b::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("img/noiz-over.jpg");
-  opacity: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: 5;
-  mix-blend-mode: screen;
-}
-
-.section-three::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("img/bac-3.jpg");
-  opacity: 30%;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
-
-/* متن‌ها */
+/* ========================
+   6. COMMON ELEMENTS
+   ======================== */
+/* Text */
 .text {
   position: absolute;
   color: #777;
@@ -192,7 +155,6 @@ body {
 
 .text.left {
   top: 15%;
-  /* بالاتر رفت */
   left: 10%;
   text-align: left;
   opacity: 80%;
@@ -200,13 +162,12 @@ body {
 
 .text.right {
   bottom: 20%;
-  /* پایین‌تر اومد */
   right: 10%;
   text-align: right;
   opacity: 0.8;
 }
 
-/* لوگو وسط */
+/* Logo & Button */
 .logo {
   position: absolute;
   top: 50%;
@@ -216,6 +177,11 @@ body {
   filter: drop-shadow(#919191 0px 3px 0px);
   cursor: url('img/link.png'), auto;
 }
+
+.logo img {
+  width: 150px;
+}
+
 .bu-start {
   margin-top: 100px;
   font-size: 20px;
@@ -236,39 +202,8 @@ body {
   filter: drop-shadow(#91919160 0px 3px 0px);
   cursor: url('img/link.png'), auto;
 }
-.logo img {
-  width: 150px;
-}
-.ab{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 15;
-}
-.ab-box{
-  width: 90%;
-  max-width: 1080px;  
-}
-.cv-text{
-  width: 100%;
-  text-align: center;
-}
-.cv-text p{
-  color: #a18100;
-  padding-top: 10px;
-  font-size: 30px;
-  line-height: 40px;
-  filter: drop-shadow(#FECC00 0px 0px 25px);
-}
-.sir-photo{
-  object-fit: cover;
-  width: 100%;
-  border-radius: 15px;
-  filter: drop-shadow(#919191 0px 3px 0px);  
-}
-/* ابرها (بزرگ‌تر) */
+
+/* Clouds */
 .cloud {
   position: absolute;
   opacity: 0.95;
@@ -299,7 +234,7 @@ body {
   opacity: 0.5;
 }
 
-/* مثلث */
+/* Shapes */
 .triangle {
   position: absolute;
   bottom: -150px;
@@ -309,7 +244,6 @@ body {
   filter: drop-shadow(#ffa600 0px 0px 150px);
 }
 
-/* دایره */
 .circle {
   position: absolute;
   top: -200px;
@@ -320,7 +254,11 @@ body {
   z-index: 10;
 }
 
-/* ===== Section Two ===== */
+/* ========================
+   7. SECTION SPECIFIC
+   ======================== */
+
+/* --- Section Two (Dark) --- */
 .section-two {
   position: relative;
   height: 100vh;
@@ -331,17 +269,107 @@ body {
   justify-content: center;
   cursor: url('img/mouse-b.png'), auto;
 }
+
+.section-two::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/noiz-over.jpg");
+  opacity: 20%;
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+  mix-blend-mode: screen;
+}
+
+/* --- Section Two B (Light) --- */
 .section-two-b {
   position: relative;
   height: 100vh;
-  background: radial-gradient(circle at top center,#FFFFFF 0%,#BFBFBF 70%);
+  background: radial-gradient(circle at top center, #FFFFFF 0%, #BFBFBF 70%);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: url('img/mouse-b.png'), auto;
 }
 
-/* ستاره‌ها */
+.section-two-b::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/noiz-over.jpg");
+  opacity: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+  mix-blend-mode: screen;
+}
+
+/* --- Section Three --- */
+.section-three {
+  cursor: url('img/mouse-b.png'), auto;
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle at top center, #ffffff 0%, #d1d1d1 70%);
+  overflow: hidden;
+}
+
+.section-three::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/bac-3.jpg");
+  opacity: 30%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* AB Box (Profile) */
+.ab {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+}
+
+.ab-box {
+  width: 90%;
+  max-width: 1080px;
+}
+
+.cv-text {
+  width: 100%;
+  text-align: center;
+}
+
+.cv-text p {
+  color: #a18100;
+  padding-top: 10px;
+  font-size: 30px;
+  line-height: 40px;
+  filter: drop-shadow(#FECC00 0px 0px 25px);
+}
+
+.sir-photo {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 15px;
+  filter: drop-shadow(#919191 0px 3px 0px);
+}
+
+/* Stars */
 .star {
   position: absolute;
   width: 400px;
@@ -362,7 +390,26 @@ body {
   z-index: 13;
 }
 
-/* کارت‌ها */
+.star-blue {
+  position: absolute;
+  width: 350px;
+  opacity: 0.9;
+  animation: rotate 2.5s infinite;
+  filter: drop-shadow(#0D8BE8 0px 0px 150px);
+  z-index: 2;
+}
+
+.star-tl {
+  top: -120px;
+  left: -120px;
+}
+
+.star-br {
+  bottom: -120px;
+  right: -120px;
+}
+
+/* Cards */
 .cards {
   display: flex;
   gap: 60px;
@@ -385,12 +432,22 @@ body {
   object-fit: contain;
 }
 
-/* افکت هاور */
 .card:hover {
   transform: translateY(-20px) scale(1.03);
 }
 
-/* دایره پایین */
+.cardmob {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+}
+
+.cardmob p {
+  font-size: 0px;
+  line-height: 0px;
+}
+
+/* Bottom Circles */
 .bottom-circle {
   position: absolute;
   bottom: -90%;
@@ -414,44 +471,19 @@ body {
   z-index: 15;
 }
 
-/* ===== Section Three (Fixed) ===== */
-.section-three {
-  cursor: url('img/mouse-b.png'), auto;
-  position: relative;
-  height: 100vh;
-  background: radial-gradient(circle at top center,
-      #ffffff 0%,
-      #d1d1d1 70%);
-  overflow: hidden;
-}
-
-/* ستاره‌ها */
-.star-blue {
-  position: absolute;
-  width: 350px;
-  opacity: 0.9;
-  animation: rotate 2.5s infinite;
-  filter: drop-shadow(#0D8BE8 0px 0px 150px);
-  z-index: 2;
-}
-
-.star-tl {
-  top: -120px;
-  left: -120px;
-}
-
-.star-br {
-  bottom: -120px;
-  right: -120px;
-}
-
-/* متن */
+/* UI Text & Mockups */
 .ui-text {
   position: absolute;
   bottom: 10%;
   text-align: center;
   width: 100%;
   z-index: 20;
+}
+
+.ui-text p {
+  font-size: 50px;
+  line-height: 50px;
+  color: #000000;
 }
 
 .ui-text-b {
@@ -468,13 +500,6 @@ body {
   color: #ffffff;
 }
 
-.ui-text p {
-  font-size: 50px;
-  line-height: 50px;
-  color: #000000;
-}
-
-/* موکاپ‌ها – دقیقاً وسط */
 .ui-mockup {
   position: absolute;
   margin-top: 30px;
@@ -486,62 +511,51 @@ body {
   z-index: 10;
 }
 
-/* تصاویر */
 .ui {
   position: absolute;
   width: 100%;
   border-radius: 15px;
 }
 
-/* لایه عقب */
 .ui.back {
   transform: translate(0px, 0px) scale(1.0);
   opacity: 1.0;
   filter: drop-shadow(#00000020 3px 3px 20px);
 }
 
-/* لایه جلو */
 .ui.front {
   transform: translate(-120px, 60px) scale(0.7);
   filter: drop-shadow(#00000020 3px 3px 20px);
   z-index: 2;
 }
 
-.cardmob {
-  position: absolute;
-  width: 0px;
-  height: 0px;
-}
 
-.cardmob p {
-  font-size: 0px;
-  line-height: 0px;
-}
-
-/*موبایل*/
+/* ========================
+   8. MEDIA QUERIES (MOBILE)
+   ======================== */
 @media (max-width: 758px) {
 
-  /* مثلث */
+  /* Shapes */
   .triangle {
     position: absolute;
     bottom: -100px;
     left: -100px;
     width: 300px;
-    animation: rotate 2.5s infinite;
+    animation: none;
     filter: drop-shadow(#ffa600 0px 0px 150px);
   }
 
-  /* دایره */
   .circle {
     position: absolute;
     top: -100px;
     right: -100px;
     width: 300px;
-    animation: rotate 2.5s infinite;
+    animation: none;
     filter: drop-shadow(#ffa600 0px 0px 150px);
     z-index: 10;
   }
 
+  /* Clouds (No animation on mobile) */
   .cloud-1 {
     top: 60px;
     right: -100px;
@@ -567,6 +581,7 @@ body {
     opacity: 0.5;
   }
 
+  /* Text Positioning */
   .text {
     position: absolute;
     color: #777;
@@ -577,7 +592,6 @@ body {
 
   .text.left {
     top: 20%;
-    /* بالاتر رفت */
     left: 10%;
     text-align: left;
     opacity: 80%;
@@ -585,15 +599,9 @@ body {
 
   .text.right {
     bottom: 20%;
-    /* پایین‌تر اومد */
     right: 10%;
     text-align: right;
     opacity: 0.8;
-  }
-
-  .ui-text-b p {
-    font-size: 0px;
-    line-height: 0px;
   }
 
   .ui-text-b {
@@ -604,7 +612,12 @@ body {
     z-index: 20;
   }
 
-  /* کارت‌ها */
+  .ui-text-b p {
+    font-size: 0px;
+    line-height: 0px;
+  }
+
+  /* Cards Mobile */
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -644,6 +657,7 @@ body {
     text-shadow: #ffffff 0px 0px 20px;
   }
 
+  /* Circles Mobile */
   .bottom-circle {
     width: 250vw;
     animation: normal;
@@ -656,6 +670,7 @@ body {
     bottom: -95%;
   }
 
+  /* UI Mockup Mobile */
   .ui-mockup {
     position: absolute;
     top: 45%;
@@ -666,31 +681,22 @@ body {
     z-index: 10;
   }
 
-  /* تصاویر */
   .ui {
     position: absolute;
     width: 100%;
     border-radius: 15px;
   }
 
-  /* لایه عقب */
   .ui.back {
     transform: translate(0px, 0px) scale(1.0);
     opacity: 1.0;
     filter: drop-shadow(#00000020 3px 3px 20px);
   }
 
-  /* لایه جلو */
   .ui.front {
     transform: translate(-50px, 50px) scale(0.7);
     filter: drop-shadow(#00000020 3px 3px 20px);
     z-index: 2;
-  }
-
-  .ui-text p {
-    font-size: 30px;
-    line-height: 30px;
-    color: #000000;
   }
 
   .ui-text {
@@ -701,75 +707,22 @@ body {
     z-index: 20;
   }
 
-  .sir-photo{
-  height: 30vh;
-  background-size: cover;
-  border-radius: 15px;
-  filter: drop-shadow(#919191 0px 3px 0px);  
+  .ui-text p {
+    font-size: 30px;
+    line-height: 30px;
+    color: #000000;
   }
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.scroll-stage {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-}
-
-.scroll-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 400vh;
-  /* 4 section */
-}
-
-.scene {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  will-change: transform, opacity;
-
-  opacity: 0;
-  transform: scaleX(1.1) scaleY(1.2);
-  transition: transform 1s cubic-bezier(.22, .61, .36, 1), opacity 0.5s ease;
-
-  pointer-events: none;
-  /* اضافه شد */
-}
-
-.scene.active {
-  opacity: 1;
-  transform: scaleX(1);
-  pointer-events: auto;
-  /* تعامل برای صحنه فعال */
-}
-
-.scene.behind {
-  transform: scaleX(1.1) scaleY(1.2);
+  .sir-photo {
+    height: 30vh;
+    background-size: cover;
+    border-radius: 15px;
+    filter: drop-shadow(#919191 0px 3px 0px);
+  }
+  .star {
+    animation: none;
+  }
+  .star-blue {
+    animation: none;
+  }
 }

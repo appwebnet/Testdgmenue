@@ -45,6 +45,28 @@
       </section>
 
       <section class="scene">
+        <section class="section-two-b">
+
+          <img src="img/4.svg" class="triangle">
+          <img src="img/5.svg" class="circle">
+
+          <img src="img/3.png" class="cloud cloud-1">
+          <img src="img/2.png" class="cloud cloud-2">
+          <img src="img/3.png" class="cloud cloud-3">
+          
+          <div class="ab">            
+            <div class="ab-box">
+              <img class="sir-photo" src="img/sir.png">
+              <div class="cv-text">
+                <p>دسـت در دسـت هـم دهـیـم به مهر، میـهن خویش را کنـیم آبـاد</p>
+              </div>              
+            </div>
+          </div>
+
+        </section>
+      </section>
+
+      <section class="scene">
         <section class="section-two">
 
           <!-- ستاره‌ها -->
@@ -99,7 +121,7 @@
       </section>
 
       <section class="scene">
-        <section class="section-two" style="background: radial-gradient(circle at top center,#FFFFFF 0%,#BFBFBF 70%);">
+        <section class="section-two-b">
           <img src="img/3.png" class="cloud cloud-1">
           <img src="img/2.png" class="cloud cloud-2">
           <img src="img/3.png" class="cloud cloud-3">
@@ -122,41 +144,88 @@
 
     </div>
   </div>
-  <script>
-    let current = 0;
-    const scenes = document.querySelectorAll('.scene');
-    let isScrolling = false;
+<script>
+  let current = 0;
+  const scenes = document.querySelectorAll('.scene');
+  let isScrolling = false;
 
-    function updateScenes() {
-      scenes.forEach((scene, i) => {
-        scene.classList.remove('active', 'behind');
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const swipeThreshold = 50; // حداقل مقدار سوایپ
 
-        if (i === current) {
-          scene.classList.add('active');
-        }
-        else if (i === current - 1) {
-          scene.classList.add('behind');
-        }
-      });
+  function updateScenes() {
+    scenes.forEach((scene, i) => {
+      scene.classList.remove('active', 'behind');
+
+      if (i === current) {
+        scene.classList.add('active');
+      } else if (i === current - 1) {
+        scene.classList.add('behind');
+      }
+    });
+  }
+
+  function scrollNext() {
+    if (current < scenes.length - 1) {
+      current++;
+      updateScenes();
+    }
+  }
+
+  function scrollPrev() {
+    if (current > 0) {
+      current--;
+      updateScenes();
+    }
+  }
+
+  function lockScroll() {
+    isScrolling = true;
+    setTimeout(() => {
+      isScrolling = false;
+    }, 1200);
+  }
+
+  /* ===== Mouse Wheel (Desktop) ===== */
+  window.addEventListener('wheel', (e) => {
+    if (isScrolling) return;
+
+    if (e.deltaY > 0) {
+      scrollNext();
+    } else if (e.deltaY < 0) {
+      scrollPrev();
     }
 
-    window.addEventListener('wheel', (e) => {
-      if (isScrolling) return;
-      isScrolling = true;
+    lockScroll();
+  }, { passive: true });
 
-      if (e.deltaY > 0 && current < scenes.length - 1) {
-        current++;
-      } else if (e.deltaY < 0 && current > 0) {
-        current--;
-      }
+  /* ===== Touch (Mobile) ===== */
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
 
-      updateScenes();
+  window.addEventListener('touchend', (e) => {
+    if (isScrolling) return;
 
-      setTimeout(() => {
-        isScrolling = false;
-      }, 1200);
-    });
-  </script>
+    touchEndY = e.changedTouches[0].clientY;
+    const deltaY = touchStartY - touchEndY;
+
+    if (Math.abs(deltaY) < swipeThreshold) return;
+
+    if (deltaY > 0) {
+      // swipe up
+      scrollNext();
+    } else {
+      // swipe down
+      scrollPrev();
+    }
+
+    lockScroll();
+  }, { passive: true });
+
+  updateScenes();
+</script>
+
 
 </body>
 

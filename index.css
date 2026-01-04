@@ -95,15 +95,15 @@
 
 @keyframes bob {
   0% {
-    bottom: -105%;
+    top: 80%;
   }
 
   50% {
-    bottom: -95%;
+    top: 70%;
   }
 
   100% {
-    bottom: -105%;
+    top: 80%;
   }
 }
 
@@ -147,6 +147,20 @@ body {
   height: 100%;
   background-image: url("img/noiz-over.jpg");
   opacity: 20%;
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+  mix-blend-mode: screen;
+}
+.section-two-b::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/noiz-over.jpg");
+  opacity: 100%;
   background-size: cover;
   background-position: center;
   z-index: 5;
@@ -225,7 +239,35 @@ body {
 .logo img {
   width: 150px;
 }
-
+.ab{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+}
+.ab-box{
+  width: 90%;
+  max-width: 1080px;  
+}
+.cv-text{
+  width: 100%;
+  text-align: center;
+}
+.cv-text p{
+  color: #a18100;
+  padding-top: 10px;
+  font-size: 30px;
+  line-height: 40px;
+  filter: drop-shadow(#FECC00 0px 0px 25px);
+}
+.sir-photo{
+  object-fit: cover;
+  width: 100%;
+  border-radius: 15px;
+  filter: drop-shadow(#919191 0px 3px 0px);  
+}
 /* ابرها (بزرگ‌تر) */
 .cloud {
   position: absolute;
@@ -282,8 +324,17 @@ body {
 .section-two {
   position: relative;
   height: 100vh;
-  background: radial-gradient(circle at top center, #222222 0%, #000000 50%);
+  background: radial-gradient(circle at top center, #3d3d3d 0%, #1d1d1d 50%);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: url('img/mouse-b.png'), auto;
+}
+.section-two-b {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle at top center,#FFFFFF 0%,#BFBFBF 70%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,7 +404,7 @@ body {
 
 .bottom-circle-b {
   position: absolute;
-  bottom: -90%;
+  top: 70%;
   left: 50%;
   transform: translateX(-50%);
   width: 1200px;
@@ -405,7 +456,7 @@ body {
 
 .ui-text-b {
   position: absolute;
-  top: 10%;
+  top: 50px;
   text-align: center;
   width: 100%;
   z-index: 20;
@@ -648,6 +699,13 @@ body {
     text-align: center;
     width: 100%;
     z-index: 20;
+  }
+
+  .sir-photo{
+  height: 30vh;
+  background-size: cover;
+  border-radius: 15px;
+  filter: drop-shadow(#919191 0px 3px 0px);  
   }
 
 }

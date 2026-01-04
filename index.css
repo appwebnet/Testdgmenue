@@ -29,6 +29,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: dillen-b;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar {
@@ -46,35 +50,21 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-@keyframes mot {
-  0% { margin-right: 0px; }
-  50% { margin-right: 100px; }
-  100% { margin-right: 0px; }
-}
-
-@keyframes mott {
-  0% { margin-left: 0px; }
-  50% { margin-left: 100px; }
-  100% { margin-left: 0px; }
-}
-
 @keyframes txtline {
   0% { transform: scale(0.9); opacity: 0%; }
   100% { transform: scale(1.0); opacity: 80%; }
 }
-
-@keyframes bo {
-  0% { bottom: -90%; }
-  50% { bottom: -70%; }
-  100% { bottom: -90%; }
+@keyframes mot {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(100px); }
+  100% { transform: translateX(0); }
+}
+@keyframes mott {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-100px); }
+  100% { transform: translateX(0); }
 }
 
-@keyframes bob {
-  0% { top: 80%; }
-  50% { top: 70%; }
-  100% { top: 80%; }
-}
 
 /* ========================
    4. SCROLL LOGIC & STAGE
@@ -375,7 +365,7 @@ body {
   width: 400px;
   opacity: 0.8;
   animation: rotate 2.5s infinite;
-  filter: drop-shadow(#0D8BE8 0px 0px 150px);
+  filter: drop-shadow(#027AFD 0px 0px 150px);
 }
 
 .star-left {
@@ -451,23 +441,17 @@ body {
 .bottom-circle {
   position: absolute;
   bottom: -90%;
-  left: 50%;
-  transform: translateX(-50%);
   width: 1200px;
-  opacity: 0.5;
-  filter: drop-shadow(#0D8BE8 0px 0px 150px);
-  animation: bo 5s infinite;
+  opacity: 0.2;
+  filter: drop-shadow(#027AFD 0px 0px 150px);
 }
 
 .bottom-circle-b {
   position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 90%;
   width: 1200px;
   opacity: 1.0;
-  filter: drop-shadow(#0D8BE8 0px 0px 150px);
-  animation: bob 5s infinite;
+  filter: drop-shadow(#027AFD 0px 0px 150px);
   z-index: 15;
 }
 
@@ -541,7 +525,6 @@ body {
     bottom: -100px;
     left: -100px;
     width: 300px;
-    animation: none;
     filter: drop-shadow(#ffa600 0px 0px 150px);
   }
 
@@ -550,7 +533,6 @@ body {
     top: -100px;
     right: -100px;
     width: 300px;
-    animation: none;
     filter: drop-shadow(#ffa600 0px 0px 150px);
     z-index: 10;
   }
@@ -666,7 +648,6 @@ body {
 
   .bottom-circle-b {
     width: 0vw;
-    animation: none;
     bottom: -95%;
   }
 
@@ -719,10 +700,31 @@ body {
     border-radius: 15px;
     filter: drop-shadow(#919191 0px 3px 0px);
   }
-  .star {
-    animation: none;
-  }
-  .star-blue {
-    animation: none;
-  }
+}
+
+
+
+/* ========================
+   SCENE ANIMATION CONTROL
+   ======================== */
+
+/* پیش‌فرض: همه انیمیشن‌ها خاموش */
+.scene * {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+/* فقط وقتی صفحه active شد */
+.scene.active * {
+  animation-play-state: running !important;
+  transition: inherit !important;
+}
+
+/* جلوگیری از hover قبل از فعال شدن */
+.scene:not(.active) {
+  pointer-events: none;
+}
+
+.scene.active {
+  pointer-events: auto;
 }

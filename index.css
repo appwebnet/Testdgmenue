@@ -526,6 +526,7 @@ body {
     left: -100px;
     width: 300px;
     filter: drop-shadow(#ffa600 0px 0px 150px);
+    animation: none;
   }
 
   .circle {
@@ -535,6 +536,7 @@ body {
     width: 300px;
     filter: drop-shadow(#ffa600 0px 0px 150px);
     z-index: 10;
+    animation: none;
   }
 
   /* Clouds (No animation on mobile) */
@@ -570,6 +572,7 @@ body {
     font-size: 30px;
     line-height: 60px;
     animation: txtline 1.5s ease-in-out;
+    animation: none;
   }
 
   .text.left {
@@ -699,6 +702,12 @@ body {
     background-size: cover;
     border-radius: 15px;
     filter: drop-shadow(#919191 0px 3px 0px);
+  }
+  .star{
+    animation: none;
+  }
+  .star-blue{
+    animation: none;
   }
 }
 

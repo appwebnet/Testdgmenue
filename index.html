@@ -7,6 +7,7 @@
     <title>MENU</title>
     <link rel="icon" href="img/icon-page.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -14,11 +15,15 @@
         <img class="ui-shape right" src="img/shape-right.svg" alt="ui">
         <img class="ui-shape left" src="img/shape-left.svg" alt="ui">
         <div class="heed">
-            <img class="profile-bu" src="img/profile.jpg" alt="profile-bu">
+
+            <a class="profile-bu" href="Profile.html">
+                <img src="img/profile.jpg" alt="profile-bu">
+            </a>
+
             <button data-sheet="sheet1" class="bu-med">
                 <img src="img/msg_settings.png" alt="bu-icon">
             </button>
-            <button class="bu-med">
+            <button data-sheet="sheet3" class="bu-med">
                 <img src="img/msg_notifications.png" alt="bu-icon">
             </button>
         </div>
@@ -35,7 +40,7 @@
                 <button data-sheet="sheet2" class="badge">
                     <img src="img/msg_qr_mini.png" alt="qr-icon">
                 </button>
-                
+
                 <svg class="cover-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
                     <defs>
                         <clipPath id="starClip">
@@ -49,7 +54,7 @@
                         preserveAspectRatio="xMidYMid slice" />
                 </svg>
 
-                <p class="title-main">رستوران <br>علی مهدوی</p>
+                <p class="title-main">رستوران علی مهدوی</p>
             </div>
         </div>
 
@@ -134,72 +139,38 @@
         </div>
     </div>
 
-    <script>
-        const overlay = document.getElementById("overlay");
-        let activeSheet = null;
 
-        // باز کردن منو
-        document.querySelectorAll("button[data-sheet]").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const sheetId = btn.dataset.sheet;
-                openSheet(document.getElementById(sheetId));
-            });
-        });
+    <div class="sheet" id="sheet3">
+        <div class="handle"></div>
+        <div class="content">
+            <p class="title-dialog">منوی دیجیتال</p>
 
-        function openSheet(sheet) {
-            if (activeSheet) closeSheet();
-            activeSheet = sheet;
-            sheet.classList.add("active");
-            overlay.classList.add("active");
-        }
+            <button style="min-height: 80px; border-radius: 15px;" class="bu-big">
+                <img src="img/star-left-old.svg" alt="ui">
+                <div style="min-height: 80px; border-radius: 15px;" class="bu-big-over">
+                    <p>افزودن خوراکی</p>
+                    <img src="img/msg_addbot.png" alt="icon-bu">
+                </div>
+            </button>
 
-        function closeSheet() {
-            if (!activeSheet) return;
-            activeSheet.classList.remove("active");
-            overlay.classList.remove("active");
-            activeSheet = null;
-        }
+            <button style="min-height: 80px; border-radius: 15px;" class="bu-big">
+                <img src="img/star-left-old.svg" alt="ui">
+                <div style="min-height: 80px; border-radius: 15px;" class="bu-big-over">
+                    <p>ویرایش منو دیجیتال</p>
+                    <img src="img/msg_edit.png" alt="icon-bu">
+                </div>
+            </button>
 
-        overlay.onclick = closeSheet;
+            <button style="min-height: 80px; border-radius: 15px;" class="bu-big">
+                <img src="img/star-left-old.svg" alt="ui">
+                <div style="min-height: 80px; border-radius: 15px;" class="bu-big-over">
+                    <p>اشتراک گزاری منو</p>
+                    <img src="img/filled_button_share.png" alt="icon-bu">
+                </div>
+            </button>
 
-        // Drag logic
-        document.querySelectorAll(".sheet").forEach(sheet => {
-            const handle = sheet.querySelector(".handle");
-
-            let startY = 0;
-            let currentY = 0;
-            let dragging = false;
-
-            handle.addEventListener("touchstart", e => {
-                startY = e.touches[0].clientY;
-                dragging = true;
-                sheet.style.transition = "none";
-            });
-
-            handle.addEventListener("touchmove", e => {
-                if (!dragging) return;
-                currentY = e.touches[0].clientY - startY;
-                if (currentY > 0) {
-                    sheet.style.transform = `translateY(${currentY}px)`;
-                }
-            });
-
-            handle.addEventListener("touchend", () => {
-                dragging = false;
-                sheet.style.transition = "0.3s";
-
-                if (currentY > 120) {
-                    closeSheet();
-                    sheet.style.transform = "translateY(100%)";
-                } else {
-                    sheet.style.transform = "translateY(0)";
-                }
-
-                currentY = 0;
-            });
-        });
-
-    </script>
+        </div>
+    </div>
 
 </body>
 

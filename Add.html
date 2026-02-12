@@ -12,7 +12,7 @@
 
 <body>
 
-    <div class="all">
+    <div class="all fix">
 
         <input class="input-text" type="text" placeholder="نام کافه یا رستوران">
 
@@ -26,36 +26,35 @@
                 <img src="img/cover.jpg" alt="cover-upload">
             </div>
             <div class="add-photo-button">
-                <button>افزودن عکس</button>
+                <button data-sheet="sheet8">افزودن عکس</button>
                 <button style="background-color: #FE9696; color: #570000;">حذف عکس</button>
             </div>
         </div>
 
-        <button data-sheet="sheet6" class="bu-big">
-            <img src="img/star-left.svg" alt="ui">
-            <div class="bu-big-over">
+        <button data-sheet="sheet6" class="bu-big old">
+            <img class="svg-star" src="img/star-left-old.svg" alt="ui">
+            <div class="bu-big-over olde">
                 <p>افزودن ادرس</p>
                 <img src="img/msg_map.png" alt="icon-bu">
             </div>
         </button>
 
-        <button data-sheet="sheet5" class="bu-big">
-            <img src="img/star-left.svg" alt="ui">
-            <div class="bu-big-over">
+        <button data-sheet="sheet5" class="bu-big old">
+            <img class="svg-star" src="img/star-left-old.svg" alt="ui">
+            <div class="bu-big-over olde">
                 <p>افزودن شبکه اجتماعی</p>
                 <img src="img/menu_username_change.png" alt="icon-bu">
             </div>
         </button>
 
 
-        <button data-sheet="sheet7" class="bu-big">
-            <img src="img/star-left.svg" alt="ui">
-            <div class="bu-big-over">
+        <button data-sheet="sheet7" class="bu-big old">
+            <img class="svg-star" src="img/star-left-old.svg" alt="ui">
+            <div class="bu-big-over olde">
                 <p>تغییر تم و رنگ منو</p>
                 <img src="img/msg_theme.png" alt="icon-bu">
             </div>
         </button>
-
 
     </div>
 
@@ -222,6 +221,50 @@
             <button class="bu-download">
                 <p>تایید تغیرات</p>
             </button>
+        </div>
+    </div>
+
+    <div class="sheet" id="sheet8">
+        <div class="handle"></div>
+        <div class="content">
+
+            <input type="file" id="fileinput" accept="image/**" style="display: none;">
+            <div class="add-photo-box">
+                <div class="img-photo-box">
+                    <img src="img/cover.jpg" alt="cover-upload">
+                </div>
+                <div class="add-photo-button">
+                    <button data-sheet="sheet8">افزودن عکس</button>
+                    <button style="background-color: #FE9696; color: #570000;">حذف عکس</button>
+                </div>
+            </div>
+
+            <input class="input-text" type="text" placeholder="ناک خوراکی">
+
+            <input class="input-text" type="number" placeholder="قیمت خوراکی">
+
+            <input class="input-text" type="text" placeholder="توضیحات خوراکی">
+
+            <div class="checkbox-flex">
+                <p>فعال کردن ناموجود</p>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="checkbox-flex">
+                <p>فعال کردن قیمت روز</p>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <button class="bu-download">
+                <p>تایید تغیرات</p>
+            </button>
+
         </div>
     </div>
 

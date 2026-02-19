@@ -103,45 +103,11 @@ buttons.forEach(button => {
 });
 */
 
+document.addEventListener("DOMContentLoaded", function () {
+    const deviceMemory = navigator.deviceMemory || 4; 
+    // اگر مرورگر پشتیبانی نکند، 4 گیگ پیش‌فرض در نظر می‌گیریم
 
-(function () {
-
-  const lowCPU =
-    navigator.hardwareConcurrency &&
-    navigator.hardwareConcurrency <= 4;
-
-  const lowRAM =
-    navigator.deviceMemory &&
-    navigator.deviceMemory <= 8;
-
-  let lowFPS = false;
-
-  let lastTime = performance.now();
-  let frames = 0;
-
-  function measureFPS() {
-    frames++;
-    const now = performance.now();
-
-    if (now - lastTime >= 1000) {
-      if (frames < 30) {
-        lowFPS = true;
-      }
-
-      applyPerformanceClass();
-      return; // فقط یک بار تست میکنیم
+    if (deviceMemory < 6) {
+        document.documentElement.classList.add("no-blur");
     }
-
-    requestAnimationFrame(measureFPS);
-  }
-
-  function applyPerformanceClass() {
-    if (lowCPU || lowRAM || lowFPS) {
-      document.body.classList.add("low-performance");
-      console.log("Low performance mode activated");
-    }
-  }
-
-  requestAnimationFrame(measureFPS);
-
-})();
+});

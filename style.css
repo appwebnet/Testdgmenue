@@ -1,3 +1,4 @@
+/*
 :root {
     --body-background-basic: #F5FCFF;
     --background-main-gradient: linear-gradient(90deg, #96e2fece, #F5FCFFce);
@@ -46,6 +47,43 @@
 }
 .bu-dialog img{
     filter: invert(100);
+}
+*/
+:root {
+    --body-background-basic: #192023;
+    --background-main-gradient: linear-gradient(90deg, #96e2fece, #192023ce);
+    --background-bu-gradient: linear-gradient(90deg, #192023ce, #96E2FEce);
+    --text-color-1: #96E2FE;
+    --bac-color-1: #96E2FE;
+    --text-color-2: #000000;
+    --text-color-3: #6AC1E1;
+    --border-color: #2B3B43;
+    --dialog-box-color: #202C30;
+    --shadow-invart: #96D1FE05;
+    --input-color: #ffffff;
+    --border-color-2-trans: #96E2FE20;
+    --placeholder-color: #ffffff80;
+    --red-color: #432B2B;
+    --gre-light-color: #beffad;
+    --gre-dark-color: #1b8500;
+}
+
+.ripple {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple-animation 600ms linear;
+  pointer-events: none;
+  filter: blur(15px);
+  z-index: 15;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 * {
@@ -220,6 +258,7 @@ input::-moz-placeholder {
     100% {
         transform: translateY(0px);
         width: 18vw;
+        max-width: 80px;
     }
 }
 
@@ -478,8 +517,7 @@ body {
 }
 
 .line-box {
-    padding-top: 1%;
-    width: 100%;
+    margin-top: 1%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1196,6 +1234,7 @@ input:checked+.slider::before {
     right: 25px;
     background-color: var(--border-color);
     height: 18vw;
+    max-height: 80px;
     width: 18vw;
     border: solid var(--border-color-2-trans) 1px;
     border-radius: 15px;
@@ -1282,7 +1321,8 @@ input:checked+.slider::before {
     font-size: clamp(10px, 4vw, 15px);
     line-height: clamp(10px, 5vw, 20px);
 }
-.save-bu{
+
+.save-bu {
     border-radius: 100px;
     border: none;
     width: 30vw;
@@ -1294,7 +1334,8 @@ input:checked+.slider::before {
     font-weight: bold;
     color: var(--gre-dark-color);
 }
-.box-notif{
+
+.box-notif {
     margin-top: 15px;
     background-color: var(--border-color);
     border-radius: 15px;
@@ -1302,12 +1343,14 @@ input:checked+.slider::before {
     padding: 15px;
     box-sizing: border-box;
 }
-.box-notif p{
+
+.box-notif p {
     font-size: clamp(10px, 5vw, 20px);
     line-height: clamp(10px, 5vw, 20px);
     color: var(--input-color);
 }
-.mini-line{
+
+.mini-line {
     background-color: var(--body-background-basic);
     width: 100%;
     border-radius: 100px;

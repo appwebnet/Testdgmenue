@@ -12,17 +12,17 @@
 
 <body>
 
-    <div class="all fit">
+<div class="all fit">
 
-        <button data-sheet="sheet8" class="add-kala-fix">
-            <div class="add-kala-bu">
+    <button data-sheet="sheet8" class="add-kala-fix">
+            <span class="add-kala-bu">
                 <img src="img/msg_addbot.png" alt="add-kala">
-            </div>
-            <p>افزودن کالا</p>
-        </button>
+            </span>
+        <span class="add-kala-fix-text">افزودن کالا</span>
+    </button>
 
-        <div class="kala-fix-scroll">
-            
+    <div class="kala-fix-scroll">
+
         <div class="kala-box">
             <div class="kala-box-title">
                 <img src="img/cover.jpg" alt="cover-kala">
@@ -42,51 +42,57 @@
 
     </div>
 
-    <div class="overlay" id="overlay"></div>
+</div>
 
-    <div class="sheet" id="sheet8">
-        <div class="handle"></div>
-        <div class="content">
+<div class="overlay" id="overlay"></div>
 
-            <input type="file" id="fileinput" accept="image/**" style="display: none;">
-            <div class="add-photo-box">
-                <div class="img-photo-box">
-                    <img src="img/cover.jpg" alt="cover-upload">
-                </div>
-                <div class="add-photo-button">
-                    <button data-sheet="sheet8">افزودن عکس</button>
-                    <button style="background-color: #FE9696; color: #570000;">حذف عکس</button>
-                </div>
+<div class="sheet" id="sheet8">
+    <div class="handle"></div>
+    <div class="content">
+
+        <input type="file" accept="image/**" style="display: none;">
+        <div class="add-photo-box">
+            <div class="img-photo-box">
+                <img src="img/cover.jpg" alt="cover-upload">
             </div>
-
-            <input class="input-text" type="text" placeholder="نام خوراکی">
-
-            <input class="input-text" type="number" placeholder="قیمت خوراکی">
-
-            <input class="input-text" type="text" placeholder="توضیحات خوراکی">
-
-            <div class="checkbox-flex">
-                <p>فعال کردن ناموجود</p>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
+            <div class="add-photo-button">
+                <button data-sheet="sheet8" type="button"><span>افزودن عکس</span></button>
+                <button type="button" style="background-color: #FE9696; color: #570000;"><span>حذف عکس</span></button>
             </div>
-
-            <div class="checkbox-flex">
-                <p>فعال کردن قیمت روز</p>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <button class="bu-download">
-                <p>تایید تغیرات</p>
-            </button>
-
         </div>
+
+        <input class="input-text" type="text" id="foodName" placeholder="نام خوراکی">
+        <label for="foodName" class="sr-only"></label>
+
+        <input class="input-text" type="number" id="foodPrice" placeholder="قیمت خوراکی">
+        <label for="foodPrice" class="sr-only"></label>
+
+        <input class="input-text" type="text" id="foodDesc" placeholder="توضیحات خوراکی">
+        <label for="foodDesc" class="sr-only"></label>
+
+
+        <div class="checkbox-flex">
+            <p>فعال کردن ناموجود</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="checkbox-flex">
+            <p>فعال کردن قیمت روز</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <button class="bu-download" type="button">
+            <span>تایید تغییرات</span>
+        </button>
+
     </div>
+</div>
 
 </body>
 

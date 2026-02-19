@@ -1358,3 +1358,9 @@ input:checked+.slider::before {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.low-performance * {
+  backdrop-filter: none !important;
+}
+
+

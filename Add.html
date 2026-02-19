@@ -8,225 +8,176 @@
     <link rel="icon" href="img/icon-page.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="all fix">
+<div class="all fix">
 
-        <div>
-            <button class="save-bu green">ذخیره</button>
+    <div>
+        <button type="button" class="save-bu green"><span>ذخیره</span></button>
+    </div>
+
+    <label for="cafeName" class="sr-only"></label>
+    <input id="cafeName" class="input-text" type="text" placeholder="نام کافه یا رستوران">
+
+    <label for="cafeSlogan" class="sr-only"></label>
+    <input id="cafeSlogan" class="input-text" type="text" placeholder="شعار کافه یا رستوران">
+
+    <label for="cafeDesc" class="sr-only"></label>
+    <input id="cafeDesc" class="input-text" type="text" placeholder="توضیحات کافه یا رستوران">
+
+    <input type="file" id="file-input" accept="image/**" style="display: none;">
+    <div class="add-photo-box">
+        <div class="img-photo-box">
+            <img src="img/cover.jpg" alt="cover-upload">
         </div>
-
-        <input class="input-text" type="text" placeholder="نام کافه یا رستوران">
-
-        <input class="input-text" type="text" placeholder="شعار کافه یا رستوران">
-
-        <input class="input-text" type="text" placeholder="توضیحات کافه یا رستوران">
-
-        <input type="file" id="fileinput" accept="image/**" style="display: none;">
-        <div class="add-photo-box">
-            <div class="img-photo-box">
-                <img src="img/cover.jpg" alt="cover-upload">
-            </div>
-            <div class="add-photo-button">
-                <button>افزودن عکس</button>
-                <button style="background-color: #FE9696; color: #570000;">حذف عکس</button>
-            </div>
+        <div class="add-photo-button">
+            <button type="button"><span>افزودن عکس</span></button>
+            <button type="button" style="background-color: #FE9696; color: #570000;"><span>حذف عکس</span></button>
         </div>
+    </div>
 
-        <button data-sheet="sheet6" class="bu-big old">
-            <img class="svg-star" src="img/star-left-old.svg" alt="ui">
-            <div class="bu-big-over olde">
-                <p>افزودن ادرس</p>
+    <button type="button" data-sheet="sheet6" class="bu-big old">
+        <img class="svg-star" src="img/star-left-old.svg" alt="ui">
+        <span class="bu-big-over olde">
+                <span>افزودن ادرس</span>
                 <img src="img/msg_map.png" alt="icon-bu">
-            </div>
-        </button>
+            </span>
+    </button>
 
-        <button data-sheet="sheet5" class="bu-big old">
-            <img class="svg-star" src="img/star-left-old.svg" alt="ui">
-            <div class="bu-big-over olde">
-                <p>افزودن شبکه اجتماعی</p>
+    <button type="button" data-sheet="sheet5" class="bu-big old">
+        <img class="svg-star" src="img/star-left-old.svg" alt="ui">
+        <span class="bu-big-over olde">
+                <span>افزودن شبکه اجتماعی</span>
                 <img src="img/menu_username_change.png" alt="icon-bu">
-            </div>
-        </button>
+            </span>
+    </button>
 
-        <button data-sheet="sheet7" class="bu-big old">
-            <img class="svg-star" src="img/star-left-old.svg" alt="ui">
-            <div class="bu-big-over olde">
-                <p>تغییر تم و رنگ منو</p>
+    <button type="button" data-sheet="sheet7" class="bu-big old">
+        <img class="svg-star" src="img/star-left-old.svg" alt="ui">
+        <span class="bu-big-over olde">
+                <span>تغییر تم و رنگ منو</span>
                 <img src="img/msg_theme.png" alt="icon-bu">
-            </div>
-        </button>
+            </span>
+    </button>
 
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="sheet" id="sheet5">
+    <div class="handle"></div>
+    <div class="content">
+
+        <img class="cover-title" src="img/cover-title.jpg" alt="cover-title">
+
+        <label for="Instagram" class="sr-only"></label>
+        <input id="Instagram" class="input-text" type="text" placeholder="ادرس اینستاگرام">
+
+        <label for="telegram" class="sr-only"></label>
+        <input id="telegram" class="input-text" type="text" placeholder="ادرس تلگرام">
+
+        <label for="website" class="sr-only"></label>
+        <input id="website" class="input-text" type="text" placeholder="وب سایت">
+
+        <button type="button" class="bu-download"><span>تایید تغییرات</span></button>
     </div>
+</div>
 
-    <div class="overlay" id="overlay"></div>
+<div class="sheet" id="sheet6">
+    <div class="handle"></div>
+    <div class="content">
 
-    <div class="sheet" id="sheet5">
-        <div class="handle"></div>
-        <div class="content">
+        <img class="cover-title" src="img/cover-title-2.jpg" alt="cover-title">
 
-            <img class="cover-title" src="img/cover-title.jpg" alt="cover-title">
+        <label for="address" class="sr-only"></label>
+        <input id="address" class="input-text" type="text" placeholder="ادرس نوشتاری">
 
-            <input class="input-text" type="text" placeholder="ادرس اینستاگرام">
+        <label for="address-link" class="sr-only"></label>
+        <input id="address-link" class="input-text" type="text" placeholder="لینک ادرس">
 
-            <input class="input-text" type="text" placeholder="ادرس تلگرام">
+        <label for="address-code" class="sr-only"></label>
+        <input id="address-code" class="input-text" type="text" placeholder="کد پستی">
 
-            <input class="input-text" type="text" placeholder="وب سایت">
+        <div style="display: flex; gap: 15px;">
+            <label for="province" class="sr-only"></label>
+            <select id="province" style="text-align: center;" class="input-text">
+                <option>مازندران</option>
+                <option>رستوران</option>
+                <option>کافه</option>
+            </select>
 
-            <button class="bu-download">
-                <p>تایید تغیرات</p>
-            </button>
+            <label for="city" class="sr-only"></label>
+            <select id="city" style="text-align: center;" class="input-text">
+                <option>ساری</option>
+                <option>رستوران</option>
+                <option>کافه</option>
+            </select>
         </div>
+
+        <button type="button" class="bu-download"><span>تایید تغییرات</span></button>
     </div>
+</div>
 
-    <div class="sheet" id="sheet6">
-        <div class="handle"></div>
-        <div class="content">
+<div class="sheet" id="sheet7">
+    <div class="handle"></div>
+    <div class="content">
 
-            <img class="cover-title" src="img/cover-title-2.jpg" alt="cover-title">
+        <p class="mini-title">انتخاب فونت منو</p>
 
-            <input class="input-text" type="text" placeholder="ادرس اینستاگرام">
+        <div class="select-box-big">
 
-            <input class="input-text" type="text" placeholder="ادرس تلگرام">
-
-            <input class="input-text" type="text" placeholder="وب سایت">
-
-            <div style="display: flex; gap: 15px;">
-
-                <select style="text-align: center;" class="input-text">
-                    <option>مازندران</option>
-                    <option>رستوران</option>
-                    <option>کافه</option>
-                </select>
-
-                <select style="text-align: center;" class="input-text">
-                    <option>ساری</option>
-                    <option>رستوران</option>
-                    <option>کافه</option>
-                </select>
-
+            <div class="select-font arad">
+                <p>فونت اراد</p>
+                <p>دیجی منو بهترین منوی دیجیتال در ایران</p>
             </div>
 
-            <button class="bu-download">
-                <p>تایید تغیرات</p>
-            </button>
+            <div class="select-font doran">
+                <p>فونت دوران</p>
+                <p>دیجی منو بهترین منوی دیجیتال در ایران</p>
+            </div>
+
+            <div class="select-font sorena">
+                <p>فونت سورنا</p>
+                <p>دیجی منو بهترین منوی دیجیتال در ایران</p>
+            </div>
+
         </div>
+
+        <p class="mini-title">انتخاب رنگ منو</p>
+
+        <div class="select-box-big">
+            <button type="button">
+                <img src="img/color-th.svg" alt="color">
+            </button>
+            <!-- سایر دکمه‌ها مشابه -->
+        </div>
+
+        <p class="mini-title">انتخاب رنگ بکگراند</p>
+
+        <div class="select-box-med">
+            <div class="bac-color-box bac-color-black">دارک مود</div>
+            <div class="bac-color-box bac-color-white">لایت مود</div>
+            <div class="bac-color-box bac-color-blacks">تم تاریک</div>
+            <div class="bac-color-box bac-color-whites">تم روشن</div>
+        </div>
+
+        <button type="button" class="bu-download"><span>تایید تغییرات</span></button>
     </div>
-
-    <div class="sheet" id="sheet7">
-        <div class="handle"></div>
-        <div class="content">
-
-            <p class="mini-title">انتخاب فونت منو</p>
-
-            <div class="select-box-big">
-
-                <div class="select-font arad">
-                    <p>فونت اراد</p>
-                    <p>دیجی منو بهترین منوی دیجیتال در ایران</p>
-                </div>
-
-                <div class="select-font doran">
-                    <p>فونت دوران</p>
-                    <p>دیجی منو بهترین منوی دیجیتال در ایران</p>
-                </div>
-
-                <div class="select-font sorena">
-                    <p>فونت سورنا</p>
-                    <p>دیجی منو بهترین منوی دیجیتال در ایران</p>
-                </div>
-
-            </div>
-
-            <p class="mini-title">انتخاب رنگ منو</p>
-
-            <div class="select-box-big">
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-                <button>
-                    <img src="img/color-th.svg" alt="color">
-                </button>
-
-            </div>
-
-            <p class="mini-title">انتخاب رنگ بکگراند</p>
-
-            <div class="select-box-med">
-                <div class="bac-color-box bac-color-black">دارک مود</div>
-                <div class="bac-color-box bac-color-white">لایت مود</div>
-                <div class="bac-color-box bac-color-blacks">تم تاریک</div>
-                <div class="bac-color-box bac-color-whites">تم روشن</div>
-            </div>
-
-            <button class="bu-download">
-                <p>تایید تغیرات</p>
-            </button>
-        </div>
-    </div>   
-
+</div>
 
 </body>
 

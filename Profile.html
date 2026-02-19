@@ -12,65 +12,65 @@
 
 <body>
 
-    <div class="all">
+<div class="all">
 
-        <div class="pro-status">PRO</div>
+    <div class="pro-status">PRO</div>
 
-        <img class="ui-shape bottom" src="img/shape-right.svg" alt="ui">
-        <img class="ui-shape top" src="img/shape-left.svg" alt="ui">
+    <img class="ui-shape bottom" src="img/shape-right.svg" alt="ui">
+    <img class="ui-shape top" src="img/shape-left.svg" alt="ui">
 
-        <div class="img-cover-box">
-            <img class="profile-img" src="img/profile.jpg" alt="profile-cover">
+    <div class="img-cover-box">
+        <img class="profile-img" src="img/profile.jpg" alt="profile-cover">
+    </div>
+    <p class="profile-name">علی مهدوی</p>
+
+    <label for="userName" class="sr-only"></label>
+    <input id="userName" class="input-text" type="text" placeholder="نام شما">
+
+    <label for="phoneNumber" class="sr-only"></label>
+    <input id="phoneNumber" class="input-text" type="text" placeholder="شماره تلفن">
+
+    <div class="plan-status">
+        <div class="plan-status-text">
+            <p>نوع : اشتراک پـایـه</p>
+            <p style="margin-right: auto;">مانده : ۱۰۰ روز</p>
         </div>
-        <p class="profile-name">علی مهدوی</p>
-
-        <input class="input-text" type="text" placeholder="نام شما">
-
-        <input class="input-text" type="text" placeholder="شماره تلفن">
-
-        <div class="plan-status">
-            <div class="plan-status-text">
-                <p>نوع : اشتراک پـایـه</p>
-                <p style="margin-right: auto;">مانده : ۱۰۰ روز</p>
-            </div>
-            <button class="buy-pro-plan">تمدید و خرید اشتراک</button>
-        </div>
-
-        <div class="flex-bu-circle">
-
-            <button class="bu-circle-big">تماس با پشتیبانی</button>
-
-            <button class="bu-circle">
-                <img src="img/menu_contact_existing.png" alt="icon-bu">
-            </button>
-
-            <button onclick="openModaledwarning()" class="bu-circle red">
-                <img src="img/menu_delete_old.png" alt="icon-bu">
-            </button>
-        </div>
-
+        <button type="button" class="buy-pro-plan"><span>تمدید و خرید اشتراک</span></button>
     </div>
 
+    <div class="flex-bu-circle">
 
-        <div class="modal-overlay" id="modalOverlay">
-        <div class="warning-box">
-            <img src="img/warning-icon.svg" alt="warning-icon">
-            <p class="warning-title">ایا از حذف مطمعن هستید</p>
-            <p>پس از زدن حذف اعطلایت قابل بازگردانی نمیباشد<br>و کاملا از بین میرود ایا از تصمیم خود مطمعن هستید</p>
+        <button type="button" class="bu-circle-big"><span>تماس با پشتیبانی</span></button>
 
-            <button onclick="closeModaledwarning()" class="bu-dialog">
-                <p>لغو عملیات</p>
-                <img src="img/msg_photo_back.png" alt="icon-bu">
-            </button>
+        <button type="button" class="bu-circle">
+            <img src="img/menu_contact_existing.png" alt="icon-bu">
+        </button>
 
-            <button class="bu-dialog">
-                <p>تایید و حذف</p>
-                <img src="img/menu_delete_old.png" alt="icon-bu">
-            </button>
-
-        </div>
+        <button type="button" onclick="openModaledwarning()" class="bu-circle red">
+            <img src="img/menu_delete_old.png" alt="icon-bu">
+        </button>
     </div>
 
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="warning-box">
+        <img src="img/warning-icon.svg" alt="warning-icon">
+        <p class="warning-title">ایا از حذف مطمعن هستید</p>
+        <p>پس از زدن حذف اعطلایت قابل بازگردانی نمیباشد<br>و کاملا از بین میرود ایا از تصمیم خود مطمعن هستید</p>
+
+        <button type="button" onclick="closeModaledwarning()" class="bu-dialog">
+            <span>لغو عملیات</span>
+            <img src="img/msg_photo_back.png" alt="icon-bu">
+        </button>
+
+        <button type="button" class="bu-dialog">
+            <span>تایید و حذف</span>
+            <img src="img/menu_delete_old.png" alt="icon-bu">
+        </button>
+
+    </div>
+</div>
 
 </body>
 

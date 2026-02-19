@@ -77,7 +77,7 @@ function closeModaledwarning() {
 
 
 
-/*
+
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
@@ -100,14 +100,4 @@ buttons.forEach(button => {
     }, 600);
 
   });
-});
-*/
-
-document.addEventListener("DOMContentLoaded", function () {
-    const deviceMemory = navigator.deviceMemory || 4; 
-    // اگر مرورگر پشتیبانی نکند، 4 گیگ پیش‌فرض در نظر می‌گیریم
-
-    if (deviceMemory < 6) {
-        document.documentElement.classList.add("no-blur");
-    }
 });

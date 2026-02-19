@@ -2,7 +2,6 @@
 const overlay = document.getElementById("overlay");
 let activeSheet = null;
 
-// باز کردن منو
 document.querySelectorAll("button[data-sheet]").forEach(btn => {
     btn.addEventListener("click", () => {
         const sheetId = btn.dataset.sheet;
@@ -26,7 +25,6 @@ function closeSheet() {
 
 overlay.onclick = closeSheet;
 
-// Drag logic
 document.querySelectorAll(".sheet").forEach(sheet => {
     const handle = sheet.querySelector(".handle");
 
@@ -76,3 +74,27 @@ function closeModaledwarning() {
     document.getElementById('modalOverlay').style.display = 'none';
     document.getElementById('main-content').classList.remove('blurred');
 }
+
+
+
+
+
+document.addEventListener("click", function(e) {
+
+  const ripple = document.createElement("span");
+  ripple.classList.add("ripple");
+
+  const size = 100;
+  ripple.style.width = size + "px";
+  ripple.style.height = size + "px";
+
+  ripple.style.left = (e.clientX - size / 2) + "px";
+  ripple.style.top = (e.clientY - size / 2) + "px";
+
+  document.body.appendChild(ripple);
+
+  setTimeout(() => {
+    ripple.remove();
+  }, 600);
+
+});

@@ -1359,8 +1359,9 @@ input:checked+.slider::before {
     margin-bottom: 15px;
 }
 
-.low-performance * {
-  backdrop-filter: none !important;
+/* اگر رم کمتر از 6 گیگ باشد */
+.no-blur .glass-effect {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
-
 

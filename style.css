@@ -102,14 +102,6 @@ input::-moz-placeholder {
     ::-webkit-scrollbar {
         width: 0;
     }
-
-    .box-main {
-        max-height: 300px;
-    }
-
-    .hero {
-        max-height: 355px;
-    }
 }
 
 
@@ -142,14 +134,6 @@ input::-moz-placeholder {
 
     .title-main {
         width: 80%;
-    }
-
-    .box-main {
-        max-height: 250px;
-    }
-
-    .hero {
-        max-height: 305px;
     }
 }
 
@@ -379,7 +363,8 @@ body {
 .hero {
     position: relative;
     overflow: hidden;
-    height: 84vw;
+    height: 80vw;
+    max-height: 300px;
     width: 100%;
     display: flex;
     align-items: start;
@@ -394,16 +379,17 @@ body {
     position: absolute;
     background-color: var(--body-background-basic);
     width: 800px;
-    height: 500px;
+    height: 350px;
     border-radius: 100% 100% 0 0;
 }
 
 .box-main {
-    margin: 50px 15px 15px 15px;
+    margin: clamp(20px, 10vw, 50px) clamp(5px, 5vw, 15px) clamp(5px, 5vw, 15px) clamp(5px, 5vw, 15px);
     background-color: var(--bac-color-1);
     border-radius: 40px;
     width: 100%;
     height: 70vw;
+    max-height: 250px;
     display: flex;
     justify-content: left;
     box-sizing: border-box;
@@ -425,39 +411,45 @@ body {
     position: absolute;
     z-index: 1;
     animation: opacity-start 1.5s forwards;
+    width: 45vw;
+    max-width: 150px;
 }
 
 .badge {
     border: none;
-    width: 65px;
-    height: 65px;
+    width: 20vw;
+    height: 20vw;
+    max-width: 65px;
+    max-height: 65px;
     background: url("img/shape-r.svg") center;
+    background-size: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3;
-    margin: 25px auto 0 25px;
+    margin: clamp(10px, 5vw, 25px) auto 0 clamp(10px, 5vw, 25px);
     animation: rotate 0.5s forwards;
 }
 
 .badge img {
-    width: 25px;
+    width: 6vw;
+    max-width: 25px;
     animation: rotate 0.8s forwards;
 }
 
 .cover-main {
-    margin: 25px;
+    margin: clamp(15px, 5vw, 25px);
     position: absolute;
     top: 0;
-    width: 45vw;
-    max-width: 200px;
+    width: 40vw;
+    max-width: 150px;
     animation: rotate-min 0.9s forwards;
 }
 
 .title-main {
     font-weight: bold;
     position: absolute;
-    margin: clamp(20px, 8vw, 40px);
+    margin: clamp(20px, 6vw, 30px);
     bottom: 0;
     left: 0;
     font-size: clamp(18px, 7vw, 30px);
@@ -496,9 +488,9 @@ body {
     justify-content: left;
     background-color: var(--bac-color-1);
     width: 100%;
-    height: 15vw;
-    min-height: 50px;
-    max-height: 80px;
+    height: 13vw;
+    min-height: 40px;
+    max-height: 60px;
     border-radius: 40px;
     border: none;
 }
@@ -511,9 +503,9 @@ body {
     position: absolute;
     background: var(--background-bu-gradient);
     width: 100%;
-    height: 15vw;
-    min-height: 50px;
-    max-height: 80px;
+    height: 13vw;
+    min-height: 40px;
+    max-height: 60px;
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -526,17 +518,17 @@ body {
 
 .bu-big-over span {
     padding-right: 25px;
-    font-size: clamp(15px, 6vw, 25px);
-    line-height: clamp(15px, 6vw, 25px);
+    font-size: clamp(15px, 5vw, 25px);
+    line-height: clamp(15px, 5vw, 25px);
     color: var(--text-color-2);
     font-weight: 600;
 }
 
 .bu-big-over img {
-    width: 8vw;
-    max-width: 35px;
+    width: 7vw;
+    max-width: 30px;
     margin-right: auto;
-    margin-left: 20px;
+    margin-left: clamp(5px, 5vw, 20px);
 }
 
 .all-bu {
@@ -575,7 +567,7 @@ body {
     touch-action: none;
     z-index: 4;
     background-color: var(--body-background-basic);
-    border-top: var(--border-color) solid 5px;
+    border-top: var(--border-color) solid 3px;
     overflow-y: auto;
 }
 
@@ -595,12 +587,12 @@ body {
     width: 80px;
     height: 5px;
     background: var(--border-color);
-    border-radius: 10px;
+    border-radius: 15px;
     margin: 10px auto;
 }
 
 .content {
-    padding: 5px 20px 20px 20px;
+    padding: 5px clamp(10px, 4vw, 15px) clamp(10px, 4vw, 15px) clamp(10px, 4vw, 15px);
 }
 
 .title-dialog {
@@ -640,10 +632,10 @@ body {
 }
 
 .bu-download {
-    margin-top: 15px;
+    margin-top: clamp(10px, 4vw, 15px);
     width: 100%;
-    height: 12vw;
-    max-height: 50px;
+    height: 15vw;
+    max-height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -731,8 +723,8 @@ body {
     border: none;
     border-radius: 15px;
     text-indent: 15px;
-    height: 15vw;
-    max-height: 45px;
+    height: 13vw;
+    max-height: 40px;
     font-size: clamp(10px, 5vw, 20px);
     line-height: clamp(10px, 5vw, 20px);
     color: var(--input-color);
@@ -881,15 +873,15 @@ body {
 .mini-title {
     font-size: clamp(10px, 4vw, 15px);
     line-height: clamp(10px, 4vw, 15px);
-    padding-top: 15px;
-    text-indent: 15px;
+    padding-top: clamp(5px, 3vw, 15px);
+    text-indent: clamp(5px, 3vw, 15px);
     color: var(--text-color-1);
 }
 
 .add-photo-box {
     margin-top: clamp(5px, 3vw, 15px);
     background-color: var(--border-color);
-    padding: 15px;
+    padding: clamp(5px, 3vw, 15px);
     border-radius: 15px;
 }
 
@@ -911,7 +903,7 @@ body {
 }
 
 .add-photo-button {
-    margin-top: 15px;
+    margin-top: clamp(5px, 3vw, 15px);
     display: flex;
     gap: 15px;
 }
@@ -921,10 +913,11 @@ body {
     color: var(--text-color-2);
     font-size: clamp(10px, 5vw, 20px);
     line-height: clamp(10px, 5vw, 20px);
-    height: 40px;
+    height: 10vw;
+    max-height: 35px;
     width: 100%;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .add-photo-button span{
@@ -939,7 +932,7 @@ body {
 }
 
 .select-box-big {
-    margin-top: 15px;
+    margin-top: clamp(5px, 3vw, 15px);
     width: 100%;
     max-height: 150px;
     border-radius: 15px;
@@ -951,7 +944,7 @@ body {
     justify-content: center;
     gap: 10px;
     overflow-y: scroll;
-    padding: 15px;
+    padding: clamp(5px, 3vw, 10px);
 }
 
 .select-box-big button {
@@ -971,9 +964,9 @@ body {
 }
 
 .select-box-med {
-    margin-top: 15px;
+    margin-top: clamp(10px, 4vw, 15px);
     width: 100%;
-    height: 80px;
+    height: 70px;
     border-radius: 15px;
     background-color: var(--dialog-box-color);
     border: solid var(--border-color) 2px;
@@ -981,7 +974,7 @@ body {
     box-sizing: border-box;
     justify-content: center;
     gap: 10px;
-    padding: 15px;
+    padding: clamp(10px, 4vw, 15px);
 }
 
 .bac-color-box {
@@ -1026,7 +1019,7 @@ body {
     color: var(--input-color);
     font-size: clamp(10px, 4vw, 15px);
     line-height: clamp(10px, 4vw, 15px);
-    padding: 15px;
+    padding: clamp(5px, 3vw, 10px);
     transition: all 0.5s ease-in-out;
 }
 
@@ -1099,22 +1092,21 @@ input:checked+.slider::before {
 }
 
 .checkbox-flex {
-    margin-top: 15px;
+    margin-top: clamp(5px, 3vw, 15px);
     background-color: var(--border-color);
     font-size: clamp(10px, 5vw, 20px);
     line-height: clamp(10px, 5vw, 20px);
     color: var(--text-color-1);
     display: flex;
     align-items: center;
-    height: 15vw;
-    min-height: 50px;
-    max-height: 80px;
-    border-radius: 15px;
-    padding-left: 15px;
+    height: 13vw;
+    max-height: 40px;
+    border-radius: 10px;
+    padding-left: clamp(10px, 4vw, 10px);
 }
 
 .checkbox-flex p {
-    text-indent: 15px;
+    text-indent: clamp(10px, 4vw, 15px);
     margin-left: auto;
 }
 
@@ -1274,7 +1266,7 @@ input:checked+.slider::before {
     border: none;
     width: 30vw;
     max-width: 100px;
-    height: 8vw;
+    height: 7vw;
     max-height: 40px;
     font-size: clamp(10px, 5vw, 20px);
     line-height: clamp(10px, 5vw, 20px);

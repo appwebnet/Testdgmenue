@@ -77,24 +77,71 @@ function closeModaledwarning() {
 
 
 
+/*
+const buttons = document.querySelectorAll("button");
 
+buttons.forEach(button => {
+  button.addEventListener("click", function(e) {
 
-document.addEventListener("click", function(e) {
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
 
-  const ripple = document.createElement("span");
-  ripple.classList.add("ripple");
+    const size = 100;
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
 
-  const size = 100;
-  ripple.style.width = size + "px";
-  ripple.style.height = size + "px";
+    ripple.style.left = (e.clientX - size / 2) + "px";
+    ripple.style.top = (e.clientY - size / 2) + "px";
 
-  ripple.style.left = (e.clientX - size / 2) + "px";
-  ripple.style.top = (e.clientY - size / 2) + "px";
+    document.body.appendChild(ripple);
 
-  document.body.appendChild(ripple);
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
 
-  setTimeout(() => {
-    ripple.remove();
-  }, 600);
-
+  });
 });
+*/
+
+
+(function () {
+
+  const lowCPU =
+    navigator.hardwareConcurrency &&
+    navigator.hardwareConcurrency <= 4;
+
+  const lowRAM =
+    navigator.deviceMemory &&
+    navigator.deviceMemory <= 8;
+
+  let lowFPS = false;
+
+  let lastTime = performance.now();
+  let frames = 0;
+
+  function measureFPS() {
+    frames++;
+    const now = performance.now();
+
+    if (now - lastTime >= 1000) {
+      if (frames < 30) {
+        lowFPS = true;
+      }
+
+      applyPerformanceClass();
+      return; // فقط یک بار تست میکنیم
+    }
+
+    requestAnimationFrame(measureFPS);
+  }
+
+  function applyPerformanceClass() {
+    if (lowCPU || lowRAM || lowFPS) {
+      document.body.classList.add("low-performance");
+      console.log("Low performance mode activated");
+    }
+  }
+
+  requestAnimationFrame(measureFPS);
+
+})();

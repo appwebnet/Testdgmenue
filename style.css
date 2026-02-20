@@ -1,6 +1,6 @@
 :root {
     --body-background-basic: #192023;
-    --background-main-gradient: linear-gradient(90deg, #96e2fece, #192023ce);
+    --background-main-gradient: linear-gradient( #6199B1, #35809C);
     --background-bu-gradient: linear-gradient(90deg, #192023ce, #96E2FEce);
     --text-color-1: #96E2FE;
     --bac-color-1: #96E2FE;
@@ -286,7 +286,7 @@ body {
 }
 
 .bu-med img {
-    width: 6vw;
+    width: 5vw;
     max-width: 25px;
 }
 
@@ -338,7 +338,7 @@ body {
 }
 
 .bottom {
-    top: 200px;
+    top: 150px;
     right: -110px;
     width: 60vw;
     max-width: 240px;
@@ -363,8 +363,7 @@ body {
 .hero {
     position: relative;
     overflow: hidden;
-    height: 80vw;
-    max-height: 300px;
+    height: 40px;
     width: 100%;
     display: flex;
     align-items: start;
@@ -379,43 +378,25 @@ body {
     position: absolute;
     background-color: var(--body-background-basic);
     width: 800px;
-    height: 350px;
+    height: 500px;
     border-radius: 100% 100% 0 0;
 }
 
 .box-main {
-    margin: clamp(20px, 10vw, 50px) clamp(5px, 5vw, 15px) clamp(5px, 5vw, 15px) clamp(5px, 5vw, 15px);
-    background-color: var(--bac-color-1);
-    border-radius: 40px;
     width: 100%;
-    height: 70vw;
-    max-height: 250px;
-    display: flex;
-    justify-content: left;
     box-sizing: border-box;
-    z-index: 3;
-    cursor: pointer;
+    padding: 0 15px 0 15px;
 }
 
-.main-box {
-    position: relative;
+.main{
     background: var(--background-main-gradient);
-    width: 100%;
-    height: 100%;
-    z-index: 4;
+    box-sizing: border-box;
     border-radius: 40px;
-}
-
-.shape-star {
-    filter: blur(5px);
-    position: absolute;
-    z-index: 1;
-    animation: opacity-start 1.5s forwards;
-    width: 45vw;
-    max-width: 150px;
+    width: 100%;
 }
 
 .badge {
+    margin-right: auto;
     border: none;
     width: 20vw;
     height: 20vw;
@@ -426,42 +407,45 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3;
-    margin: clamp(10px, 5vw, 25px) auto 0 clamp(10px, 5vw, 25px);
     animation: rotate 0.5s forwards;
 }
 
+.svg-main{
+    display: flex;
+    width: 100%;
+    padding: 15px 15px 0px 15px;
+    box-sizing: border-box;
+}
+
 .badge img {
-    width: 6vw;
+    width: 7vw;
     max-width: 25px;
     animation: rotate 0.8s forwards;
 }
 
 .cover-main {
-    margin: clamp(15px, 5vw, 25px);
-    position: absolute;
-    top: 0;
     width: 40vw;
     max-width: 150px;
+    height: 40vw;
+    max-height: 150px;
     animation: rotate-min 0.9s forwards;
 }
 
 .title-main {
+    width: 50%;
+    padding-left: 25px;
+    padding-bottom: 25px;
     font-weight: bold;
-    position: absolute;
-    margin: clamp(20px, 6vw, 30px);
-    bottom: 0;
-    left: 0;
     font-size: clamp(18px, 7vw, 30px);
     line-height: clamp(20px, 8vw, 40px);
     text-align: left;
     color: var(--text-color-2);
-    width: 50%;
+    margin-right: auto;
     animation: opacity-start 1.5s forwards;
 }
 
 .line-box {
-    margin-top: 1%;
+    margin-top: clamp(5px, 3vw, 15px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -476,17 +460,12 @@ body {
     border-radius: 100px;
 }
 
-.svg-star {
-    height: 100%;
-}
-
 .bu-big {
     margin-top: clamp(5px, 3vw, 15px);
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: left;
-    background-color: var(--bac-color-1);
+    background-color: var(--border-color);
     width: 100%;
     height: 13vw;
     min-height: 40px;
@@ -499,40 +478,22 @@ body {
     border-radius: 15px;
 }
 
-.bu-big-over {
-    position: absolute;
-    background: var(--background-bu-gradient);
-    width: 100%;
-    height: 13vw;
-    min-height: 40px;
-    max-height: 60px;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    backdrop-filter: blur(5px);
-}
-
-.olde {
-    border-radius: 15px;
-}
-
-.bu-big-over span {
+.bu-big span {
     padding-right: 25px;
     font-size: clamp(15px, 5vw, 25px);
     line-height: clamp(15px, 5vw, 25px);
-    color: var(--text-color-2);
+    color: var(--input-color);
     font-weight: 600;
 }
 
-.bu-big-over img {
-    width: 7vw;
-    max-width: 30px;
+.bu-big img {
+    width: 6vw;
+    max-width: 25px;
     margin-right: auto;
     margin-left: clamp(5px, 5vw, 20px);
 }
 
 .all-bu {
-    position: relative;
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
@@ -618,8 +579,8 @@ body {
 
 .bu-dialog img {
     min-width: 10px;
-    width: 6vw;
-    max-width: 25px;
+    width: 5vw;
+    max-width: 20px;
     padding-left: 15px;
     margin-right: auto;
 }
@@ -692,8 +653,8 @@ body {
 .profile-img {
     border-radius: 100px;
     margin-top: 25px;
-    width: 50vw;
-    max-width: 200px;
+    width: 45vw;
+    max-width: 150px;
     animation: rotate-min 0.9s forwards;
 }
 
@@ -705,15 +666,18 @@ body {
 }
 
 .pro-status {
-    width: 100px;
+    width: 20vw;
+    max-width: 100px;
     padding-top: 2px;
-    height: 23px;
+    height: 5vw;
+    max-height: 23px;
     border-radius: 100px;
     background: linear-gradient(#FFBB00, #FFA200);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #211700;
+    font-weight: bold;
 }
 
 .input-text {
@@ -723,12 +687,12 @@ body {
     border: none;
     border-radius: 15px;
     text-indent: 15px;
-    height: 13vw;
-    max-height: 40px;
+    height: 14vw;
+    max-height: 45px;
     font-size: clamp(10px, 5vw, 20px);
     line-height: clamp(10px, 5vw, 20px);
     color: var(--input-color);
-    width: 100%;
+    width: 100%;    
 }
 
 .plan-status {
@@ -770,9 +734,9 @@ body {
     outline: none;
     border: none;
     height: 25vw;
-    max-height: 70px;
+    max-height: 65px;
     width: 25vw;
-    max-width: 70px;
+    max-width: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -786,7 +750,7 @@ body {
     outline: none;
     border: none;
     height: 25vw;
-    max-height: 70px;
+    max-height: 65px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -799,7 +763,8 @@ body {
 }
 
 .bu-circle img {
-    width: 25px;
+    width: 5vw;
+    max-width: 25px;
 }
 
 .red {
@@ -917,7 +882,7 @@ body {
     max-height: 35px;
     width: 100%;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .add-photo-button span{
@@ -998,13 +963,13 @@ body {
 }
 
 .bac-color-blacks {
-    background-color: #00122c;
-    color: #0081eb;
+    background-color: #20262e;
+    color: #a4caff;
 }
 
 .bac-color-whites {
-    background-color: #0081eb;
-    color: #00122c;
+    background-color: #a4caff;
+    color: #20262e;
 }
 
 .bac-color-box:hover {
@@ -1099,9 +1064,9 @@ input:checked+.slider::before {
     color: var(--text-color-1);
     display: flex;
     align-items: center;
-    height: 13vw;
-    max-height: 40px;
-    border-radius: 10px;
+    height: 14vw;
+    max-height: 45px;
+    border-radius: 15px;
     padding-left: clamp(10px, 4vw, 10px);
 }
 
@@ -1140,7 +1105,7 @@ input:checked+.slider::before {
 }
 
 .kala-box button img {
-    width: 50%;
+    width: 40%;
 }
 
 .kala-box-title {
@@ -1203,7 +1168,7 @@ input:checked+.slider::before {
 }
 
 .add-kala-bu img {
-    width: 40%;
+    width: 30%;
 }
 
 .kala-fix-scroll {

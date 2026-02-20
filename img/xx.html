@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ripple Effect</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #111;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Ripple circle */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple-animation 600ms linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button>دکمه اول</button>
+<button>دکمه دوم</button>
+<button>دکمه سوم</button>
+
+<script>
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", function(e) {
+
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+
+    const size = 100;
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+
+    ripple.style.left = (e.clientX - size / 2) + "px";
+    ripple.style.top = (e.clientY - size / 2) + "px";
+
+    document.body.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+
+  });
+});
+</script>
+
+</body>
+</html>

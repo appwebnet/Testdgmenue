@@ -1,21 +1,52 @@
 :root {
-    --body-background-basic: #192023;
-    --background-main-gradient: linear-gradient( #6199B1, #35809C);
-    --background-bu-gradient: linear-gradient(90deg, #192023ce, #96E2FEce);
-    --text-color-1: #96E2FE;
+    --body-background-basic: #F5FCFF;
+    --background-main-gradient: linear-gradient( #89c6e0, #65c2e4);
+    --background-bu-gradient: linear-gradient(90deg, #F5FCFFce, #96E2FEce);
+    --text-color-1: #192023;
     --bac-color-1: #96E2FE;
     --text-color-2: #000000;
     --text-color-3: #6AC1E1;
-    --border-color: #2B3B43;
-    --dialog-box-color: #202C30;
-    --shadow-invart: #96D1FE05;
-    --input-color: #ffffff;
+    --border-color: #C6ECFF;
+    --dialog-box-color: #ffffff;
+    --shadow-invart: #ffffff05;
+    --input-color: #000000;
     --border-color-2-trans: #96E2FE20;
-    --placeholder-color: #ffffff80;
-    --red-color: #432B2B;
-    --gre-light-color: #beffad;
-    --gre-dark-color: #1b8500;
-    --ripple-color: #ffffff50;
+    --placeholder-color: #00000080;
+    --red-color: #ff8181;
+    --gre-light-color: #1b8500;
+    --gre-dark-color: #beffad;
+    --ripple-color: #00000050;
+}
+
+.shape-star {
+    display: none;
+}
+
+.bu-big img {
+    filter: invert(100);
+}
+
+.svg-star {
+    filter: invert(100);
+}
+
+.bu-med img {
+    filter: invert(100);
+}
+
+.bu-circle img {
+    filter: invert(100);
+}
+
+.add-kala-bu img {
+    filter: invert(100);
+}
+
+.kala-box button img {
+    filter: invert(100);
+}
+.bu-dialog img{
+    filter: invert(100);
 }
 
 /*_____________________[code]________________________*/
@@ -1265,3 +1296,4 @@ input:checked+.slider::before {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+

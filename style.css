@@ -98,7 +98,7 @@ input::-moz-placeholder {
     background-color: var(--text-color-3);
 }
 
-@media (min-width: 758px) {
+@media (max-width: 758px) {
     ::-webkit-scrollbar {
         width: 0;
     }
@@ -453,7 +453,7 @@ body {
 }
 
 .line {
-    background-color: var(--bac-color-1);
+    background-color: var(--dialog-box-color);
     width: 5%;
     height: 1vw;
     max-height: 5px;
@@ -560,7 +560,7 @@ body {
     color: var(--text-color-1);
     font-size: clamp(20px, 8vw, 40px);
     line-height: clamp(20px, 8vw, 40px);
-    padding-right: 20px;
+    padding-right: 15px;
     font-weight: bold;
 }
 
@@ -1252,8 +1252,8 @@ input:checked+.slider::before {
 }
 
 .box-notif p {
-    font-size: clamp(10px, 5vw, 20px);
-    line-height: clamp(10px, 5vw, 20px);
+    font-size: clamp(10px, 4vw, 20px);
+    line-height: clamp(10px, 4vw, 20px);
     color: var(--input-color);
 }
 

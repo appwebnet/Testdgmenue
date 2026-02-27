@@ -520,6 +520,7 @@ body {
 .bu-big img {
     width: 6vw;
     max-width: 25px;
+    max-height: 25px;
     margin-right: auto;
     margin-left: clamp(5px, 5vw, 20px);
 }
@@ -657,6 +658,8 @@ body {
     width: 100%;
     max-width: 500px;
     border-radius: 20px;
+    border: solid var(--line-color) 2px;
+    box-sizing: border-box;
 }
 
 .v-d {
